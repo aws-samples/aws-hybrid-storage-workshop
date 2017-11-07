@@ -1,0 +1,171 @@
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Description": "Hybrid Workshop - Deploy Windows Server 1 (eu-west-1) v1.02",
+  "Metadata": {
+    "AWS::CloudFormation::Interface": {
+     "ParameterGroups": [
+       {
+         "Label": { "default" : "Windows Instance Configuration" },
+         "Parameters": [ "existingVPC", "existingSubnet" , "type"]
+        },
+        {
+          "Label": { "default": "Security" },
+          "Parameters": [ "key", "allowed1" ]
+        }
+      ],
+     "ParameterLabels": {
+      "allowed1": { "default": "Allow RDP access from:" },
+      "existingSubnet": { "default": "Subnet:" },
+      "existingVPC": { "default": "VPC:" },
+      "key": { "default": "Access Key Pair:" },
+      "type": { "default": "Instance Type:" }
+     }
+    }
+  },
+  "Parameters": {
+    "existingSubnet":{
+     "Type":"AWS::EC2::Subnet::Id"
+    },
+    "existingVPC":{
+       "Type":"AWS::EC2::VPC::Id"
+    },
+    "type": {
+      "AllowedValues": [ "t2.medium" ],
+      "Default": "t2.medium",
+      "Type": "String"
+    },
+    "key": {
+        "Description": "EC2 key pair for RDP Access",
+        "Type": "AWS::EC2::KeyPair::KeyName"
+    },
+    "allowed1":{
+       "Description":"(CIDR)",
+       "Type":"String",
+       "Default":"0.0.0.0/0",
+       "ConstraintDescription":"Valid CIDR Block"
+    }
+  },
+  "Resources" : {
+    "win1SecurityGroup" : {
+      "Type" : "AWS::EC2::SecurityGroup",
+      "Properties" : {
+        "GroupDescription" : "Hybrid Workshop - Windows Server 1 RDP Access",
+        "VpcId":{ "Ref":"existingVPC" },
+        "SecurityGroupIngress" : [
+          { "IpProtocol" : "tcp", "FromPort" : "3389", "ToPort" : "3389", "CidrIp" : { "Ref" : "allowed1"} }
+         ]
+      }
+    },
+    "win1Instance": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "ImageId" : "ami-e92fec90",
+        "InstanceType": { "Ref" : "type" },
+        "IamInstanceProfile": { "Ref": "win1InstanceProfile" },
+        "Tags": [ { "Key": "Name", "Value": { "Fn::Join": [ "", [ "Hybrid Workshop - Deploy - Windows Server 1 (", { "Ref": "AWS::StackName" }, ")" ] ] } } ],
+        "KeyName": { "Ref" : "key"},
+        "BlockDeviceMappings": [
+          {
+            "DeviceName": "/dev/sda1",
+            "Ebs": {
+              "VolumeSize": "30",
+              "DeleteOnTermination" : "true",
+              "VolumeType" : "gp2"
+            }
+          }
+        ],
+        "NetworkInterfaces": [
+          {
+              "AssociatePublicIpAddress": "true",
+              "DeviceIndex": "0",
+              "GroupSet": [ { "Ref": "win1SecurityGroup" } ],
+              "SubnetId":{ "Ref":"existingSubnet" }
+          }
+        ],
+        "UserData": {
+          "Fn::Base64": {
+            "Fn::Join": [ "",
+              [
+                "<script>\n",
+                "Set-ExecutionPolicy RemoteSigned\n",
+                "powershell -Command $client = new-object System.Net.WebClient; $client.DownloadFile('https://download.mozilla.org/?product=firefox-latest\"&\"os=win\"&\"lang=en-US','C:\\firefox.exe')\n",
+                "@start /wait c:\\firefox.exe -ms\n",
+                "powershell -Command $client = new-object System.Net.WebClient; $client.DownloadFile('https://s3.amazonaws.com/aws-cli/AWSCLI64.msi','C:\\Users\\Administrator\\Downloads\\AWSCLI64.msi')\n",
+                "@start /wait C:\\Users\\Administrator\\Downloads\\AWSCLI64.msi /qb\n",
+                "echo Get-Disk ^| Where partitionstyle -eq 'RAW' ^| Initialize-Disk -PartitionStyle MBR -PassThru ^| New-Partition -AssignDriveLetter -UseMaximumSize ^| Format-Volume -FileSystem NTFS -NewFileSystemLabel \"Data\" -Confirm:$false > %temp%\\format-disk2-download.ps1\n",
+                "echo foreach ($_ in 5..200){ d:\\ >> %temp%\\format-disk2-download.ps1\n",
+                "echo $a = Get-Random -Minimum 1 -Maximum 99999 >> %temp%\\format-disk2-download.ps1\n",
+                "echo $a = $a.ToString(\"00000\") >> %temp%\\format-disk2-download.ps1\n",
+                "echo Read-S3Object -BucketName aft-vbi-pds -Key bin-images/\"$a\".jpg -File d:\\\"$a\".jpg >> %temp%\\format-disk2-download.ps1\n",
+                "echo $i++ >> %temp%\\format-disk2-download.ps1\n",
+                "echo } >> %temp%\\format-disk2-download.ps1\n",
+                "powershell -ExecutionPolicy Bypass -Command %temp%\\format-disk2-download.ps1\n",
+                "</script>\n"
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "windowsDisk2Attach" : {
+      "Type":"AWS::EC2::VolumeAttachment",
+      "Properties" : { "Device" :  "/dev/xvdb", "InstanceId" : { "Ref" : "win1Instance" }, "VolumeId" : { "Ref" : "windowsDisk2" } }
+    },
+    "windowsDisk2" : {
+      "Type":"AWS::EC2::Volume",
+      "Properties" : {
+        "AvailabilityZone" : { "Fn::GetAtt" : [ "win1Instance", "AvailabilityZone" ] },
+        "Size" : "1",
+        "VolumeType" : "gp2",
+        "Tags": [ { "Key": "Name", "Value": { "Fn::Join": [ "", [ "Hybrid Workshop - Windows 1 Disk 2 (", { "Ref": "AWS::StackName" }, ")" ] ] } } ]
+      }
+    },
+    "win1InstanceProfile": {
+      "Type": "AWS::IAM::InstanceProfile",
+      "Properties": {
+        "Path": "/",
+        "Roles": [ { "Ref": "win1IamRole" } ] },
+    },
+    "win1IamRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [ {
+            "Action": [ "sts:AssumeRole" ],
+            "Effect": "Allow",
+            "Principal": { "Service": [ "ec2.amazonaws.com" ] }
+          }
+          ],
+          "Version": "2012-10-17"
+        }
+      }
+    },
+    "win1RolePolicy": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": ["s3:ListBucket"],
+              "Resource": ["arn:aws:s3:::aft-vbi-pds"]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:DeleteObject"
+              ],
+              "Resource": ["arn:aws:s3:::aft-vbi-pds/*"]
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "policy",
+        "Roles": [ { "Ref": "win1IamRole" } ]
+      }
+    }
+  },
+  "Outputs" : { }
+}
