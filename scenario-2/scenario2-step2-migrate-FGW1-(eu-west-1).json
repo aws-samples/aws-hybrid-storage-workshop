@@ -1,0 +1,232 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Hybrid Workshop - Migrate - File Gateway Server 1 (eu-west-1) v1.00",
+  "Metadata": {
+    "License" : {
+        "Description" : "'Copyright 2017 Amazon.com, Inc. and its affiliates. All Rights Reserved.
+        Licensed under the Amazon Software License (the \"License\"). You may not use this file
+        except in compliance with the License. A copy of the License is located at
+
+        http://aws.amazon.com/asl/
+
+        or in the \"license\" file accompanying this file. This file is distributed on an \"AS IS\"
+        BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+        License for the specific language governing permissions and limitations under the License.'"
+    },
+    "AWS::CloudFormation::Interface": {
+      "ParameterGroups": [
+        {
+          "Label": { "default": "File Gateway Instance Configuration" },
+          "Parameters": [ "existingVPC", "existingSubnet", "type"  ]
+        },
+        {
+          "Label": { "default": "File Gateway EBS Configuration" },
+          "Parameters": [ "cacheSize" ]
+        },
+        {
+          "Label": { "default": "Activation" },
+          "Parameters": [  "region" ]
+        },
+        {
+          "Label": { "default": "Security" },
+          "Parameters": [ "key", "linux1SecurityGroup" ]
+        }
+      ],
+      "ParameterLabels": {
+        "existingSubnet": { "default": "Subnet:" },
+        "existingVPC": { "default": "VPC:" },
+        "cacheSize": { "default": "Gateway Cache Disk Size (GP2):" },
+        "type": { "default": "Instance Type:" },
+        "win1SecurityGroup" : { "default" : "Allowed Security Group:" },
+        "region" : { "default" : "Activation region:" }
+      }
+    }
+  },
+  "Parameters": {
+    "existingSubnet": {
+      "Description": "Subnet",
+      "Type": "AWS::EC2::Subnet::Id"
+    },
+    "existingVPC": {
+      "Description": "VPC",
+      "Type": "AWS::EC2::VPC::Id"
+    },
+    "key": {
+      "Description": "EC2 key pair",
+      "Type": "AWS::EC2::KeyPair::KeyName"
+    },
+    "linux1SecurityGroup": {
+      "Description": "Security group ID attached to the linux instance from previous step \"Hybrid Workshop - Windows Linux 1 SSH Access\"",
+      "Type": "AWS::EC2::SecurityGroup::Id",
+    },
+    "type": {
+      "AllowedValues": [ "c4.2xlarge" ],
+      "Default": "c4.2xlarge",
+      "Type": "String"
+    },
+    "cacheSize": {
+      "AllowedValues": [ "10" ],
+      "Description": "(GiB)",
+      "Default": "10",
+      "Type": "String"
+    },
+    "region": {
+      "AllowedValues": [ "eu-central-1" ],
+      "Description": "Remote region that the gateway volume data and management with reside in",
+      "Default": "eu-central-1",
+      "Type": "String"
+    },
+  },
+  "Resources": {
+    "FGW1InstanceProfile": {
+      "Type": "AWS::IAM::InstanceProfile",
+      "Properties": {
+        "Path": "/",
+        "Roles": [ { "Ref": "FGW1Role" } ] }
+    },
+    "FGW1Role": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [ {
+            "Action": [ "sts:AssumeRole" ],
+            "Effect": "Allow",
+            "Principal": { "Service": [ "ec2.amazonaws.com" ] }
+          }
+          ],
+          "Version": "2012-10-17"
+        }
+      }
+    },
+    "FGW1RolePolicy": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "storagegateway:*",
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": "ec2:DescribeNetworkInterfaces",
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": "ec2:CreateTags",
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "FGW1RolePolicy",
+        "Roles": [ { "Ref": "FGW1Role" } ]
+      }
+    },
+    "FGW1SecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "VpcId": { "Ref": "existingVPC" },
+        "GroupDescription": "Hybrid Workshop - File Gateway 1 Access All Ports",
+        "SecurityGroupIngress": [
+          { "FromPort": "0", "IpProtocol": "tcp", "SourceSecurityGroupId": { "Ref": "linux1SecurityGroup" }, "ToPort": "65535" },
+          { "FromPort": "0", "IpProtocol": "udp", "SourceSecurityGroupId": { "Ref": "linux1SecurityGroup" }, "ToPort": "65535" },
+          { "FromPort": "-1", "IpProtocol": "icmp", "SourceSecurityGroupId": { "Ref": "linux1SecurityGroup" }, "ToPort": "-1" }
+        ]
+      }
+    },
+    "FGW1Instance": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "Tags": [ { "Key": "Name", "Value": { "Fn::Join": [ "", [ "Hybrid Workshop - Migrate - File Gateway Server 1 (", { "Ref": "AWS::StackName" }, ")" ] ] } } ],
+        "InstanceType": { "Ref" : "type"},
+        "IamInstanceProfile": { "Ref": "FGW1InstanceProfile" },
+        "InstanceInitiatedShutdownBehavior": "terminate",
+        "ImageId": "ami-d5dc0fac",
+        "KeyName": { "Ref": "key" },
+        "NetworkInterfaces": [
+          {
+            "AssociatePublicIpAddress": "true",
+            "DeviceIndex": "0",
+            "GroupSet": [ { "Ref": "FGW1SecurityGroup" } ],
+            "SubnetId": { "Ref": "existingSubnet" }
+          }
+        ],
+        "UserData": {
+          "Fn::Base64": {
+            "Fn::Join": [
+              "",
+              [
+                "#!/bin/bash\n",
+                "echo clear log > /var/log/cloud-init-output.log\n",
+                "pip install --upgrade awscli &> /tmp/pip\n",
+                "/usr/local/bin/aws configure set default.region ", { "Ref": "AWS::Region" },"\n",
+                "instance=$(curl http://169.254.169.254/latest/meta-data/instance-id)\n",
+                "ip=$(curl http://169.254.169.254/latest/meta-data/local-ipv4)\n",
+                "echo $ip\n",
+                "name=Hybrid-Workshop-File-Gateway-Server-1-${instance}\n",
+                "gwMode=FILE_S3\n",
+                "region=",{ "Ref" : "region" },"\n",
+                "complete=0\n",
+                "count=1\n",
+
+                "while [ $complete != 2 -a $count != 30 ]; do\n",
+                " if [ $count -ne 1 ]; then\n",
+                "  sleep 15\n",
+                " fi\n",
+
+                "  if [ $complete -eq 0 ]; then\n",
+                "   code=$(echo -e \"GET ?gatewayType=${gwMode}&activationRegion=${region} HTTP/1.1\\n\\n\" | nc localhost 8080 | grep -oP 'activationKey=([\\w-]+)' | cut -f2 -d=)\n",
+                "   if [[ $code != \"\" ]]; then\n",
+                "    gatewayarn=$(/usr/local/bin/aws storagegateway activate-gateway --activation-key ${code} --gateway-name ${name} --gateway-timezone GMT --gateway-type ${gwMode} --gateway-region ${region} --region ${region} --output text)\n",
+                "    if [ $? -eq 0 ]; then complete=1; echo ${gatewayarn}; fi\n",
+                "   fi\n",
+                "  fi\n",
+
+                "  if [ $complete -eq 1 ]; then\n",
+                "   disks=$(/usr/local/bin/aws storagegateway list-local-disks --gateway-arn ${gatewayarn} --region ${region} --output text)\n",
+                "   disks=$(echo \"$disks\"| awk '{print $4}')\n",
+                "   diskarray=($disks)\n",
+                "   /usr/local/bin/aws storagegateway add-cache --gateway-arn ${gatewayarn} --disk-ids --region ${region} ${diskarray[0]}\n",
+                "   if [ $? -eq 0 ]; then complete=2; fi\n",
+                "  fi\n",
+
+
+                " count=$((count+1))\n",
+                "done\n",
+
+                "if [ $complete -eq 2 ]; then\n",
+                " /usr/local/bin/aws ec2 create-tags --resources ${instance} --tags \"Key=Name,Value=", "Hybrid Workshop - Migrate - Gateway Server 1 (Activated) - (", { "Ref": "AWS::StackName" }, ")\"\n",
+                "else\n",
+                " /usr/local/bin/aws ec2 create-tags --resources ${instance} --tags \"Key=Name,Value=", "Hybrid Workshop - Migrate - Gateway Server 1 (FAILED ACTIVATION) - (", { "Ref": "AWS::StackName" }, ")\"\n",
+                "fi\n",
+                "echo finished\n",
+                "cat /var/log/cloud-init-output.log >> /tmp/message\n"
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "gwdisk2attach" : {
+      "Type":"AWS::EC2::VolumeAttachment",
+      "Properties" : {
+        "Device" :  "/dev/sdc",
+        "InstanceId" : { "Ref" : "FGW1Instance" },
+        "VolumeId" : { "Ref" : "gwdisk2" }
+      }
+    },
+    "gwdisk2" : {
+      "Type":"AWS::EC2::Volume",
+      "Properties" : {
+        "AvailabilityZone" : { "Fn::GetAtt" : [ "FGW1Instance", "AvailabilityZone" ] },
+        "Size" : { "Ref" : "cacheSize" },
+        "VolumeType" : "gp2",
+        "Tags": [ { "Key": "Name", "Value": { "Fn::Join": [ "", [ "Hybrid Workshop - File Gateway Server 1 - EBS 2 - Cache (", { "Ref": "AWS::StackName" }, ")" ] ] } } ],
+      }
+    }
+  },
+  "Outputs": {}
+}
