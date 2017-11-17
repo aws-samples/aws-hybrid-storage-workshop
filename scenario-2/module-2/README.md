@@ -97,17 +97,18 @@ For Example:
 
 4.	Check the directory has been mounted using df or mount command
 
-	`df –h`
-	`mount`
+	```df –h
+  mount```
 
 Example output:
 
-`[ec2-user@ip-172-31-11-236 data]$ df -h`
+```[ec2-user@ip-172-31-11-236 data]$ df -h
 Filesystem                                 Size  Used Avail Use% Mounted on
-devtmpfs                                   488M   60K  488M   1% /dev`
-`tmpfs                                      497M     0  497M   0% /dev/shm`
-`/dev/xvda1                                 7.8G  1.1G  6.7G  14% /`
-`172.31.10.98:/my-storage-workshop-bucket1  8.0E     0  8.0E   0% /mnt/nfs/s3`
+devtmpfs                                   488M   60K  488M   1% /dev
+tmpfs                                      497M     0  497M   0% /dev/shm
+/dev/xvda1                                 7.8G  1.1G  6.7G  14% /
+172.31.10.98:/my-storage-workshop-bucket1  8.0E     0  8.0E   0% /mnt/nfs/s3```
+
 </p></details>
 
 ### 5. Copy data from EBS on Linux to the mounted file share
