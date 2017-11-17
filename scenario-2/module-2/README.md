@@ -125,7 +125,7 @@ In this module, we will use the Linux instance created in module 1 as NFS client
 
 ```
 cd /media/data/
-cp *.jpg /mnt/nfs/s3/
+cp -v *.jpg /mnt/nfs/s3/
 ```
 </p></details>
 
@@ -137,7 +137,7 @@ cp *.jpg /mnt/nfs/s3/
 
 1. On the Amazon S3 management console, navigate to your primary bucket and check to see that the 200 images files are stored as objects within.
 
-![scenario-2-module-2-Picture4](../../images/scenario-2-module-2-Picture5.png)
+![scenario-2-module-2-Picture5](../../images/scenario-2-module-2-Picture5.png)
 </p></details>
 
  
