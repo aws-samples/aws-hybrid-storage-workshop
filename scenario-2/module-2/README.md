@@ -10,7 +10,7 @@ In this module, you’ll deploy AWS storage gateway in file mode in the same net
 
 ## Architecture Overview
 
-![scenario 2 diagram 3](images/scenario-2-diagram-3.png)
+![scenario 2 diagram 3](../../images/scenario-2-diagram-3.png)
 
 The EC2 instance in eu-west-1 is to simulate the physical server in on-premises data center and a storage gateway is deployed on another EC2 instance to act as an on-premises file storage gateway. 
 
