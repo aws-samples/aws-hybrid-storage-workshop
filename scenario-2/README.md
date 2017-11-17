@@ -23,8 +23,8 @@ Resources consumed as part of this workshop will have a cost and it is recommend
 
 This scenario is broken into 2 module:
 
-Module 1: Configure S3 Storage Solution with CRR and Lifecycle Policy
-Module 2: Deploy Storage Gateway in File mode and integrate with S3
+**Module 1:** Configure S3 Storage Solution with CRR and Lifecycle Policy
+**Module 2:** Deploy Storage Gateway in File mode and integrate with S3
 
 ### Workshop Cleanup ###
 
