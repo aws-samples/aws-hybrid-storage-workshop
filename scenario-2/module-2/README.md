@@ -147,6 +147,8 @@ cp -v *.jpg /mnt/nfs/s3/
 
 1. In  the Amazon S3 management console, view the content under S3 replica bucket. It should display the same 200 JPEG files in the region of EU (London).
 
+![scenario-2-module-2-Picture6](../../images/scenario-2-module-2-Picture6.png)
+
 </p></details>
 
 ## Scenario complete
