@@ -29,9 +29,44 @@ In order to give our Linux instance access to S3 over NFS, we first need to depl
 
 Region| Launch
 ------|-----
-EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=storage-workshop-2a&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario2-step2-migrate-FGW1-(eu-west-1).json)
+EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=storage-workshop-2b&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario2-step2-migrate-FGW1-(eu-west-1).json)
 
 2.  Click **Next** on the Select Template page.
-3.	Select you’re the vpc and subnets where the Linux instance was created in module 1
-4.	Select the security group that start with "storage-workshop-2a"
-5.	Click Next.
+3.	Select the VPC and subnet where the Linux instance was created in module 1
+4.	Select the security group that start with "storage-workshop-2a-linux1SecurityGroup" (This will allow the Linux instance network access to the storage gateway instance)
+5.	Click **Next**.
+
+![scenario-2-module-2-Picture1](../../images/scenario-2-module-2-Picture1.png)
+
+6.	Click **Next** Again. (skipping IAM advanced section)
+7.	On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**. 
+
+Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready to move on to the next step2
+
+Note: it may take some time for the gateway to activate. You can see the activation status of the gateway in the Name of the EC2 instance in eu-west-1
+
+</p></details>
+
+### 2. Configure storage Gateway in eu-central-1 region
+
+From the AWS Management Console, select **Storage Gateway** from within services and select EU (Frankfurt) as the region.  You should see a storage gateway already created and activated in previous step.
+
+<details>
+<summary><strong>(expand for screenshot)</strong></summary><p>
+
+![scenario-2-module-2-Picture2](../../images/scenario-2-module-2-Picture2.png)
+</p></details>
+
+### 3. Create a file share connected to your primary S3 bucket 
+
+A file share can be created on the storage gateway to be used by NFS client. The file share also connects to the S3 bucket where the data is actually stored in the form of objects. Unix file permissions for each file and folder are stored as object metadata within objects in S3.
+
+<details>
+<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
+
+1.	Select the gateway named "Hybrid-Workshop-File-Gateway-Server-1..." then click **Create file share**.
+2.	In the Create file share wizard, select the storage gateway that is created, input the name of the first S3 bucket we created in first module, and select Create a new IAM role. Then click **Next**.
+
+</p></details>
+
+
