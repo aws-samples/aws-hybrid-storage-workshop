@@ -18,4 +18,4 @@ You will first migrate the data by copying it to an AWS Storage Gateway volume m
 
 You will then deploy a second AWS Storage Gateway in a remote region (eu-west-2), and mount a volume cloned from the origin Volume Gateway that is hosted in eu-central-1 to an EC2 instance in the destination region. The effect is the same in both methods, you will have a Windows server in the destination region with a data volume that matches the data volume from the original region.
 
-[Get started on scenario 1] (scenario-1) 
+![Get started on scenario 1](scenario-1/)
