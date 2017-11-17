@@ -155,4 +155,10 @@ cp -v *.jpg /mnt/nfs/s3/
 
 Congratulation you have completed the second scenario. In this workshop you successfully copied data from an nfs client in eu-west-1 to a primary S3 bucket in eu-central-1. Additionally, objects written in the primary bucket were replicated to a secondary bucket in eu-west-2. These objects will be life cycled to glacier after 30 days and in the real world might be kept to safeguard against accidental deletions that may occur the the primary objects in the primary S3 bucket.
 
-## Clean-up
+## Workshop Cleanup
+
+To make sure all resources are deleted after this workshop scenario make sure you execute the follow steps in the order outlined below:
+
+1. Delete the file gateway from the storage gateway console in eu-central-1
+2. Delete the buckets in eu-central-1 and eu-west-2
+3. Destroy the cloud formation stack in eu-west-1
