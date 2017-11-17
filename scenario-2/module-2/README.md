@@ -86,7 +86,7 @@ At this point you can mount the file share on the Linux NFS client and gain acce
 1.	SSH into the Linux Instance created in module 1
 2.	Create the directory that will contain the NSF shared files
 
-	`sudo mkdir -p /mnt/nfs/s3`
+`sudo mkdir -p /mnt/nfs/s3`
 
 3.	Mount your file share, the mount command can be found from 
 
@@ -98,7 +98,8 @@ For Example:
 4.	Check the directory has been mounted using df or mount command
 
 	```df –h
-  mount```
+  mount
+  ```
 
 Example output:
 
@@ -107,7 +108,8 @@ Filesystem                                 Size  Used Avail Use% Mounted on
 devtmpfs                                   488M   60K  488M   1% /dev
 tmpfs                                      497M     0  497M   0% /dev/shm
 /dev/xvda1                                 7.8G  1.1G  6.7G  14% /
-172.31.10.98:/my-storage-workshop-bucket1  8.0E     0  8.0E   0% /mnt/nfs/s3```
+172.31.10.98:/my-storage-workshop-bucket1  8.0E     0  8.0E   0% /mnt/nfs/s3
+```
 
 </p></details>
 
@@ -135,7 +137,3 @@ In this module, we will use the Linux instance created in module 1 as NFS client
 
 ![scenario-2-module-2-Picture4](../../images/scenario-2-module-2-Picture5.png)
 </p></details>
-
- 
-
-
