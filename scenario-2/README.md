@@ -25,12 +25,3 @@ This scenario is broken into 2 modules:
 
 * **Module 1** - [Deploy Linux Instance & configure S3 Storage Solution with CRR and Lifecycle Policy](module-1/README.md)
 * **Module 2** - [Deploy Storage Gateway in File mode and integrate with S3](module-2/README.md)
-
-## Workshop Cleanup ###
-
-To make sure all resources are deleted after this workshop scenario make sure you execute the follow steps in the order outlined below:
-
-1. Delete the file gateway from the storage gateway console in eu-central-1
-2. Delete the buckets in eu-central-1 and eu-west-2
-3. Destroy the cloud formation stack in eu-west-1
-
