@@ -33,10 +33,14 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 ### CloudFormation Launch Instructions
 
 1.	Right click the **Launch Stack** link above and "open in new tab"
+
+![Picture 1](images/Picture 1.png)
+
 2.	Click **Next** on the Select Template page.
-3.	Enter a Stack Name of your choice.
-4.	Select your default VPC and any one of the subnets within that vpc.  Note the subnet need to have a IGW attached.
-5.	If you already have an Access Key Pair for this region that you have access to, enter that key pair.  Otherwise, you will need to create a new key pair. [creating a key pair using amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair)
-6.	Leave the Allow SSH access from as 0.0.0.0/0 or enter the public IP of the computer from which you plan to access the Windows server.  You can find your public IP address at http://www.whatismypublicip.com/
-7.	Click Next.
+3.	Select your default VPC and any one of the subnets within that vpc.  Note the subnet need to have a IGW attached.
+4.	If you already have an Access Key Pair for this region that you have access to, enter that key pair.  Otherwise, you will need to create a new key pair. [creating a key pair using amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair)
+5.	Leave the Allow SSH access from as 0.0.0.0/0 or enter the public IP of the computer from which you plan to access the Windows server.  You can find your public IP address at http://www.whatismypublicip.com/
+6.	Click Next.
+
+
 
