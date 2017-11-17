@@ -53,3 +53,19 @@ Once the Cloudformation Stack shows a status of **CREATE_COMPLETE**, you can con
 
 </p></details>
 
+### 2.	SSH into Linux Instance created earlier and List the data
+
+SSH into the Linux instance that is just created, and list the files under /media/data. There are 200 JPEG files uploaded there. 
+
+<details>
+<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
+
+1.	From the AWS Console, select EC2 in Services Tab, find the instance created by previous CloudFormation Stack.  The instance should have a name start with  “Hybrid Workshop – Deploy – Linux Server 1”. Write down the IPv4 Public IP in Description. 
+
+2.	Connect to the above Linux Instance. For detailed instruction, please refer to Connecting to Your Linux Instance Using SSH
+	
+3.	In the Linux OS, type `cd /media/data`
+
+4.	Type `ls –l`, you should see 200 image files, which make up our sample data
+
+</p></details>
