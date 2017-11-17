@@ -39,7 +39,7 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 3.	Select your default VPC and any one of the subnets within that vpc.  Note the subnet need to have a IGW attached.
 4.	If you already have an Access Key Pair for this region that you have access to, enter that key pair.  Otherwise, you will need to create a new key pair. [creating a key pair using amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair)
 5.	Leave the Allow SSH access from as 0.0.0.0/0 or enter the public IP of the computer from which you plan to access the Windows server.  You can find your public IP address at http://www.whatismypublicip.com/
-6.	Click Next.
+6.	Click **Next**.
 
 ![Picture1](images/Picture1.png)
 
@@ -69,3 +69,27 @@ SSH into the Linux instance that is just created, and list the files under /medi
 4.	Type `ls –l`, you should see 200 image files, which make up our sample data
 
 </p></details>
+
+### 3. Create first S3 buckets in EU-Central-1
+
+Use the AWS console to create first S3 bucket in a secondary region (eu-central-1)
+
+<details>
+<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
+
+1.	Changed the AWS console region to eu-central-1
+
+2.	In the AWS Management Console select**Services** then select **S3** under Storage.
+
+3.	Select **Create Bucket**
+
+4.	Provide a globally unique name for your bucket such as my-storage-workshop-bucket1.
+
+5.	Select the Region to EU (Frankfurt)
+
+6.	Choose **Create** in the lower left of the dialog without selecting a bucket to copy settings from.
+
+![Picture3](images/Picture3.png)
+
+</p></details>
+
