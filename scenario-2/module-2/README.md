@@ -161,4 +161,6 @@ To make sure all resources are deleted after this workshop scenario make sure yo
 
 1. Delete the file gateway from the storage gateway console in eu-central-1
 2. Delete the buckets in eu-central-1 and eu-west-2
-3. Destroy the cloud formation stack in eu-west-1
+3. Destroy the cloud formation stack in eu-west-1 named "storage-workshop-2b" (wait for it to complete before deleting the next one)
+4. Destroy the cloud formation stack in eu-west-1 named "storage-workshop-21"
+
