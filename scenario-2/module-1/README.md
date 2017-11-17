@@ -26,7 +26,8 @@ The first step is to deploy an EC2 instance with some data in eu-west-1 to simul
 
 You can launch a customized instance using the following AWS CloudFormation template in the eu-west-1. The template will launch an instance, download a sample dataset to the instance and setup a security group for ssh access.
 
-#### CloudFormation Detailed Launch Instructions
+<details>
+<summary><strong>CloudFormation Launch Instructions (expand for details)</strong></summary><p>
 
 1.	Right click the **Launch Stack** link below and "open in new tab"
 
@@ -49,3 +50,6 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 ![Picture2](images/Picture2.png)
 
 Once the Cloudformation Stack shows a status of **CREATE_COMPLETE**, you can continue to the next step
+
+</p></details>
+
