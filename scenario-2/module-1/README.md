@@ -40,11 +40,15 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 4. If you already have an Access Key Pair for this region that you have access to, enter that key pair.  Otherwise, you will need to create a new key pair. [creating a key pair using amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair)
 5. Leave the Allow SSH access from as 0.0.0.0/0 or enter the public IP of the computer from which you plan to access the Windows server.  You can find your public IP address at http://www.whatismypublicip.com/
 6. Click **Next**.
+
 ![Picture1](images/Picture1.png)
+
 7. You can leave the IAM role and Advanced section
 8. Click **Next**
 9. On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**. 
+
 ![Picture2](images/Picture2.png)
+
 Once the Cloudformation Stack shows a status of **CREATE_COMPLETE**, you can continue to the next step
 </p></details>
 
@@ -70,7 +74,9 @@ Use the AWS console to create your primary S3 bucket located in a remote region 
 4. Provide a globally unique name for your bucket such as my-storage-workshop-bucket1.
 5. Select the Region to EU (Frankfurt)
 6. Choose **Create** in the lower left of the dialog without.
+
 ![Picture3](images/Picture3.png)
+
 </p></details>
 
 ### 4. Create second S3 bucket in EU-West-2
@@ -83,7 +89,9 @@ Use the AWS console to create a secondary S3 bucket in a tertiary region (eu-wes
 3. Provide a globally unique name for your bucket such as my-storage-workshop-bucket2.
 4. Select the Region to EU (London)
 5. Choose **Create** in the lower left of the dialog.
+
 ![Picture4](images/Picture4.png)
+
 </p></details>
 
 ### 5.Setup Cross-region Replication from S3 Primary bucket to the secondary S3 bucket
@@ -94,17 +102,27 @@ Use the AWS console to enable cross-region replication on S3 primary bucket to S
 1. In AWS Management Console, S3 service, all the buckets are listed. Click the name of the S3 bucket you created in Step 3. 
 2. Click Management Tab, and click Replication
 3. Click **Get started**, the Replication Rule will display a window to ask Enable versioning
+
 ![Picture5](images/Picture5.png)
+
 4. Click **Enable Versioning**, the Replication rule window goes to Step 1 - Source,  select source as All contents and select Enabled for Status.  Will leave the KMS encryption uncheck in this case. 
+
 ![Picture6](images/Picture6.png)
+
 5. Click Next, Replication rule windows goes to step 2 – Destination.  Click the input box under Destination bucket and a drop-down list will display all the existing buckets in this account.  Select the S3 bucket that was created in eu-west-2
+
 ![Picture7](images/Picture4.png)
+
 6. Another warning window will display to ask to Enable versioning on S3 bucket . Click **Enable versioning**.
+
 ![Picture8](images/Picture8.png)
+
 7. Once Versioning is enabled, leave the option unchecked and click **Next**
 8. The Replication rule move to Step 3 – Permissions. Click the input box under **Select IAM Role**, and select create new role. 
 9. In Step 4 – review window. Click **Save.**
+
 ![Picture9](images/Picture9.png)
+
 10.	You should see a rule under Replication tab.
 </p></details>
 
@@ -117,17 +135,27 @@ Use the AWS Management Console to create a new lifecycle policy on S3 secondary 
 2. Click Management Tab, and click Lifecycle
 3. Click Get started or **+Add lifecycle rule**
 4. In the first step of Lifecycle Rule Window, enter a rule name, click **Next**
+
 ![Picture10](images/Picture10.png)
+
 5. In the second step of Lifecycle Rule Window to configure Transitions. Check the Current version, and click + Add transition.  Select “Transition to Amazon glacier after” and add “30” in Days after object creation. 
+
 ![Picture11](images/Picture11.png)
+
 6. In step 3 of Lifecycle Rule, leave all the option unchecked. Click **Next**
 7. In review window,  click **Save.** 
+
 ![Picture12](images/Picture12.png)
+
 </p></details>
 
 ## Implementation Validation
 1. 	Using either the AWS Management Console or AWS Command Line Interface, copy a test file to the Amazon S3 primary bucket created in the section 3.
 You can either upload it using the AWS Management Console, or you use the AWS CLI to copy it directly on:
 `aws s3 cp YOU_LOCAL_FILE s3://YOUR_BUCKET_NAME_HERE`
+
 ![Picture13](images/Picture13.png)
+
 2. Select the S3 secondary bucket created in section 4 after a few minutes.  Click the refresh button, you should see the same file replicated to the second bucket. 
+
+
