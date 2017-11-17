@@ -50,6 +50,7 @@ Once the Cloudformation Stack shows a status of **CREATE_COMPLETE**, you can con
 SSH into the Linux instance that is just created, and list the files under /media/data. There are 200 JPEG files uploaded there. 
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
+
 1. From the AWS Console, select EC2 in Services Tab, find the instance created by previous CloudFormation Stack.  The instance should have a name start with  “Hybrid Workshop – Deploy – Linux Server 1”. Write down the IPv4 Public IP in Description. 
 2. Connect to the above Linux Instance. For detailed instruction, please refer to Connecting to Your Linux Instance Using SSH
 3. In the Linux OS, type `cd /media/data`
@@ -60,6 +61,7 @@ SSH into the Linux instance that is just created, and list the files under /medi
 Use the AWS console to create your primary S3 bucket located in a remote region from your Linux instance (eu-central-1)
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
+
 1. Changed the AWS console region to eu-central-1
 2. In the AWS Management Console select **Services** then select **S3** under Storage.
 3. Select **Create Bucket**
