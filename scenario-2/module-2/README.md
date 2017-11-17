@@ -103,8 +103,8 @@ For Example:
 Example output:
 
 `[ec2-user@ip-172-31-11-236 data]$ df -h`
-`Filesystem                                 Size  Used Avail Use% Mounted on`
-`devtmpfs                                   488M   60K  488M   1% /dev`
+Filesystem                                 Size  Used Avail Use% Mounted on
+devtmpfs                                   488M   60K  488M   1% /dev`
 `tmpfs                                      497M     0  497M   0% /dev/shm`
 `/dev/xvda1                                 7.8G  1.1G  6.7G  14% /`
 `172.31.10.98:/my-storage-workshop-bucket1  8.0E     0  8.0E   0% /mnt/nfs/s3`
@@ -119,8 +119,9 @@ In this module, we will use the Linux instance created in module 1 as NFS client
 1. In Linux test instance, copy media file to file gateway
 
 `cd /media/data/`
+
 `cp *.jpg /mnt/nfs/s3/`
-</p></details>.
+</p></details>
 
 
 ## Implementation Validation
@@ -132,7 +133,7 @@ In this module, we will use the Linux instance created in module 1 as NFS client
 1. On the Amazon S3 management console, navigate to your primary bucket and check to see that the 200 images files are stored as objects within.
 
 ![scenario-2-module-2-Picture4](../../images/scenario-2-module-2-Picture5.png)
-</p></details>.
+</p></details>
 
  
 
