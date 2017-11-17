@@ -14,4 +14,6 @@ In this scenario, you will use AWS Storage Gateway to migrate a block based volu
 
 You will first migrate the data by copying it to an AWS Storage Gateway volume mounted in eu-central-1.  You will then mount a copy of the volume and its data to an EC2 instance in eu-west-2 by leveraging storage gateways ability to generate EBS snapshots from block data stored in S3 and EC2s ability to mount volumes generated from EBS snapshots.
 
-![Wild Rydes Web Application Architecture](images/wildrydes-complete-architecture.png)
+![Volume Gateway Cutover Scenario 1 Architecture](images/scenario-1-cutover-1.png)
+
+You will then deploy a second AWS Storage Gateway in a remote region (eu-west-2), and mount a volume cloned from the origin Volume Gateway that is hosted in eu-central-1 to an EC2 instance in the destination region. The effect is the same in both methods, you will have a Windows server in the destination region with a data volume that matches the data volume from the original region.
