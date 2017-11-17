@@ -158,4 +158,4 @@ You can either upload it using the AWS Management Console, or you use the AWS CL
 
 2. Select the S3 secondary bucket created in section 4 after a few minutes.  Click the refresh button, you should see the same file replicated to the second bucket. 
 
-
+Congratulations, you now have a Linux instance in eu-west-1, a primary bucket in eu-central-1 and a replicated bucket in eu-west-2. When you are ready you can move to the second module. ([Deploy Storage Gateway in File mode and integrate with S3](../module-2/README.md))
