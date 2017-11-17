@@ -139,7 +139,3 @@ cp -v *.jpg /mnt/nfs/s3/
 
 ![scenario-2-module-2-Picture5](../../images/scenario-2-module-2-Picture5.png)
 </p></details>
-
- 
-
-
