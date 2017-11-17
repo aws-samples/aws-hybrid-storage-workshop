@@ -1,4 +1,4 @@
-## AWS Hybrid Storage Workshop
+# AWS Hybrid Storage Workshop
 
 ## License
 
