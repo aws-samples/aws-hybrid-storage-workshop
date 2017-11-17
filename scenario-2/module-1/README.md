@@ -11,3 +11,15 @@ In this module, you will deploy a Linux EC2 instance to simulate on-premises ser
 ## Architecture Overview
 
 ![scenario 2 diagram 2](images/scenario-2-diagram-2.png)
+
+The EC2 instance in eu-west-1 is to simulate the physical server in on-premises data center and will be used in next module to use an on-premises file storage gateway solution.  The EC2 instance use EBS volume as root volume with file data. 
+
+S3 bucket for file gateway will be created in eu-central-1, which is the primary data backup location. Another S3 Bucket in eu-west-2 will be created as the replica copy of S3 file as part of a Data Recovery solution.  Cross-region replication will be enabled on the primary S3 bucket to replicate the same data to the replica S3 bucket.  Primary S3 bucket will be used in module 2 as part of file storage gateway service. 
+
+In addition, S3 lifecycle policy will be created to change the data older than 30 days in S3 replica bucket from S3 standard class to S3 Glacier class to save the cost.   
+
+## Implementation Instructions
+
+### 1.	Deploy Linux Instance using CloudFormation Template
+
+You can launch this AWS CloudFormation template in the eu-west-1 region to build the necessary resources automatically.
