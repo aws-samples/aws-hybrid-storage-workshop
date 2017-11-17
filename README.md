@@ -22,7 +22,7 @@ You will then deploy a second AWS Storage Gateway in a remote region (eu-west-2)
 
 In this scenario, you will leverage S3, AWS Storage Gateway (volume cached mode), EC2 Windows Instances, Security Groups and Cloud formation (to automate deployment of some components)
 
-![Get started on scenario 1](scenario-1/)
+![Get started on scenario 1](scenario-1/README.md)
 
 ## Scenario 2 – File Gateway
 
@@ -36,4 +36,4 @@ Files that you write to the NFS interface in eu-west-1 will be accessible from t
 
 In this scenario, you will leverage S3 buckets and features, AWS Storage Gateway (file mode), an EC2 Linux Instance, Security Groups and Cloud formation (to automate deployment of some components)
 
-![Get started on Scenario 2](scenario-2/)
+![Get started on Scenario 2](scenario-2/README.md)
