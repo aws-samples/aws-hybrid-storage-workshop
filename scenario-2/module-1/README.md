@@ -94,7 +94,7 @@ Use the AWS console to create a secondary S3 bucket in a tertiary region (eu-wes
 
 </p></details>
 
-### 5.Setup Cross-region Replication from S3 Primary bucket to the secondary S3 bucket
+### 5. Setup Cross-region Replication from S3 Primary bucket to the secondary S3 bucket
 Use the AWS console to enable cross-region replication on S3 primary bucket to S3 secondary bucket in another region. 
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
@@ -126,7 +126,7 @@ Use the AWS console to enable cross-region replication on S3 primary bucket to S
 10.	You should see a rule under Replication tab.
 </p></details>
 
-### 6.Setup S3 Lifecycle Policy on S3 secondary bucket
+### 6. Setup S3 Lifecycle Policy on S3 secondary bucket
 Use the AWS Management Console to create a new lifecycle policy on S3 secondary bucket to remove old data to Glacier.
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
