@@ -12,9 +12,9 @@ In order to complete this workshop, you will need an AWS account with access to 
 
 Resources consumed as part of this workshop will have a cost and it is recommended that you follow the cleanup instructions once you have completed the workshop to remove all deployed resources and limit ongoing costs to your AWS account.
 
-Client Software
+### Client Software
 
-Browser - We recommend that you use the latest version of Firefox or Chrome for this workshop.
+* *Browser* - We recommend that you use the latest version of Firefox or Chrome for this workshop.
 SSH Client -You will need an ssh client to access EC2 instances
 AWS CLI – You will need the aws cli installed on you client to access S3 objects
 Key Pair – You will need a valid eu-west-1 EC2 Key Pair. For more information on generating and downloading an EC2 Key Pair please visit Creating a Key Pair Using Amazon EC2
