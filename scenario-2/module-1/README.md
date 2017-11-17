@@ -26,15 +26,15 @@ The first step is to deploy an EC2 instance with some data in eu-west-1 to simul
 
 You can launch a customized instance using the following AWS CloudFormation template in the eu-west-1. The template will launch an instance, download a sample dataset to the instance and setup a security group for ssh access.
 
+### CloudFormation Launch Instructions
+
 Region| Launch| Tip
 ------|-----|-----
 EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=hybrid-scenario-2-module-1&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario2-step1-deploy-linux1-(eu-west-1).json) | Right click and open in new tab
 
-### CloudFormation Launch Instructions
-
 1.	Right click the **Launch Stack** link above and "open in new tab"
 
-![Picture 1](images/Picture 1.png)
+![Picture1](images/Picture1.png)
 
 2.	Click **Next** on the Select Template page.
 3.	Select your default VPC and any one of the subnets within that vpc.  Note the subnet need to have a IGW attached.
