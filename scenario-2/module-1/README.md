@@ -25,3 +25,7 @@ In addition, S3 lifecycle policy will be created to change the data older than 3
 The first step is to deploy an EC2 instance in eu-west-1 to simulate a linux server running in a non-AWS location.
 
 You can launch this AWS CloudFormation template in the eu-west-1 region to build the necessary resources automatically.
+
+Region| Launch
+------|-----
+EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=wildrydes-webapp-1&templateURL=https://s3.amazonaws.com/wildrydes-eu-west-1/WebApplication/1_StaticWebHosting/webapp-static-hosting.yaml)
