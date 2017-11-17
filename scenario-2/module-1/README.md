@@ -30,9 +30,11 @@ You can launch a customized instance using the following AWS CloudFormation temp
 <summary><strong>CloudFormation Launch Instructions (expand for details)</strong></summary><p>
 
 1.	Right click the **Launch Stack** link below and "open in new tab"
+
 Region| Launch
 ------|-----
 EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=storage-workshop-2a&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario2-step1-deploy-linux1-(eu-west-1).json)
+
 2. Click **Next** on the Select Template page.
 3. Select your default VPC and any one of the subnets within that vpc.  Note the subnet need to have a IGW attached.
 4. If you already have an Access Key Pair for this region that you have access to, enter that key pair.  Otherwise, you will need to create a new key pair. [creating a key pair using amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair)
@@ -75,6 +77,7 @@ Use the AWS console to create your primary S3 bucket located in a remote region 
 Use the AWS console to create a secondary S3 bucket in a tertiary region (eu-west-2)
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
+
 1. In the AWS Management Console select **Services** then select **S3** under Storage.
 2. Select **+Create Bucket**
 3. Provide a globally unique name for your bucket such as my-storage-workshop-bucket2.
@@ -85,7 +88,9 @@ Use the AWS console to create a secondary S3 bucket in a tertiary region (eu-wes
 
 ### 5.Setup Cross-region Replication from S3 Primary bucket to the secondary S3 bucket
 Use the AWS console to enable cross-region replication on S3 primary bucket to S3 secondary bucket in another region. 
-<details><summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
+<details>
+<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
+
 1. In AWS Management Console, S3 service, all the buckets are listed. Click the name of the S3 bucket you created in Step 3. 
 2. Click Management Tab, and click Replication
 3. Click **Get started**, the Replication Rule will display a window to ask Enable versioning
@@ -105,7 +110,9 @@ Use the AWS console to enable cross-region replication on S3 primary bucket to S
 
 ### 6.Setup S3 Lifecycle Policy on S3 secondary bucket
 Use the AWS Management Console to create a new lifecycle policy on S3 secondary bucket to remove old data to Glacier.
-<details><summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
+<details>
+<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
+
 1. In AWS Management Console, S3 service, all the buckets are listed. Click the name of  the S3 secondary bucket you created in Step 3. 
 2. Click Management Tab, and click Lifecycle
 3. Click Get started or **+Add lifecycle rule**
