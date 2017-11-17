@@ -32,7 +32,7 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 
 ### CloudFormation Launch Instructions
 
-1.	Click the **Launch Stack** link above for the EU region.
+1.	Right click the **Launch Stack** link above and "open in new tab"
 2.	Click **Next** on the Select Template page.
 3.	Enter a Stack Name of your choice.
 4.	Select your default VPC and any one of the subnets within that vpc.  Note the subnet need to have a IGW attached.
