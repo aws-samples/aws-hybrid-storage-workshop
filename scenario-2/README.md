@@ -19,14 +19,14 @@ Resources consumed as part of this workshop will have a cost and it is recommend
 * **AWS CLI** – You will need the aws cli installed on you client to access S3 objects
 * **Key Pair** – You will need a valid eu-west-1 EC2 Key Pair. For more information on generating and downloading an EC2 Key Pair please visit [Creating a Key Pair Using Amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair)
 
-### Workshop Steps ###
+## Workshop Steps ###
 
 This scenario is broken into 2 module:
 
 * **Module 1** - Configure S3 Storage Solution with CRR and Lifecycle Policy
 * **Module 2** - Deploy Storage Gateway in File mode and integrate with S3
 
-### Workshop Cleanup ###
+## Workshop Cleanup ###
 
 To make sure all resources are deleted after this workshop scenario make sure you execute the follow steps in the order outlined below:
 
