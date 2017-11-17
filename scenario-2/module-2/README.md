@@ -1,4 +1,4 @@
-# Deploy Storage Gateway in File mode and integrate with S3
+# Deploy AWS Storage Gateway in File mode and integrate with S3
 
 ## License
 
@@ -67,6 +67,16 @@ A file share can be created on the storage gateway to be used by NFS client. The
 1.	Select the gateway named "Hybrid-Workshop-File-Gateway-Server-1..." then click **Create file share**.
 2.	In the Create file share wizard, select the storage gateway that is created, input the name of the first S3 bucket we created in first module, and select Create a new IAM role. Then click **Next**.
 
+![scenario-2-module-2-Picture3](../../images/scenario-2-module-2-Picture2.png)
+
+3.	Choose Next to review configuration settings. (Note: Leaving the defaults in this lab scenario is fine however, in real deployments consider limiting access by IP.)
+
+![scenario-2-module-2-Picture4](../../images/scenario-2-module-2-Picture2.png)
+
+4.	Review your file share configuration settings, and then click **Create file share**. After your file share is created, you can select the share see your file share settings in the file share Details pane at the bottom of the console.
 </p></details>
+
+### 4. Mount the bucket over NFS on your Linux instance
+
 
 
