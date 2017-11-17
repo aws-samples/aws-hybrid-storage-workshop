@@ -10,4 +10,4 @@ In this module, you will deploy a Linux EC2 instance to simulate on-premises ser
 
 ## Architecture Overview
 
-[scenario 2 diagram 2](images/scenario-2-diagram-2.png)
+![scenario 2 diagram 2](images/scenario-2-diagram-2.png)
