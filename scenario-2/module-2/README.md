@@ -78,5 +78,62 @@ A file share can be created on the storage gateway to be used by NFS client. The
 
 ### 4. Mount the bucket over NFS on your Linux instance
 
+At this point you can mount the file share on the Linux NFS client and gain access to the associated S3 bucket.
+
+<details>
+<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p> 
+
+1.	SSH into the Linux Instance created in module 1
+2.	Create the directory that will contain the NSF shared files
+
+	`sudo mkdir -p /mnt/nfs/s3`
+
+3.	Mount your file share, the mount command can be found from 
+
+`# sudo mount -t nfs -o nolock [Your gateway VM IP address]:/[mount path on your client] [MountPath]`
+
+For Example:
+`sudo mount -t nfs -o nolock 172.31.10.98:/my-storage-workshop-bucket1 /mnt/nfs/s3`
+
+4.	Check the directory has been mounted using df or mount command
+
+	`df –h`
+	`mount`
+
+Example output:
+
+`[ec2-user@ip-172-31-11-236 data]$ df -h`
+`Filesystem                                 Size  Used Avail Use% Mounted on`
+`devtmpfs                                   488M   60K  488M   1% /dev`
+`tmpfs                                      497M     0  497M   0% /dev/shm`
+`/dev/xvda1                                 7.8G  1.1G  6.7G  14% /`
+`172.31.10.98:/my-storage-workshop-bucket1  8.0E     0  8.0E   0% /mnt/nfs/s3`
+</p></details>
+
+### 5. Copy data from EBS on Linux to the mounted file share
+In this module, we will use the Linux instance created in module 1 as NFS client and copy our sample data to S3 using standard linux commands.
+
+<details>
+<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p> 
+
+1. In Linux test instance, copy media file to file gateway
+
+`cd /media/data/`
+`cp *.jpg /mnt/nfs/s3/`
+</p></details>.
+
+
+## Implementation Validation
+### 1.	Access the content in the primary S3 bucket
+
+<details>
+<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p> 
+
+1. On the Amazon S3 management console, navigate to your primary bucket and check to see that the 200 images files are stored as objects within.
+
+![scenario-2-module-2-Picture4](../../images/scenario-2-module-2-Picture5.png)
+</p></details>.
+
+ 
 
 
