@@ -1,4 +1,4 @@
-AWS Hybrid Storage Workshop - Scenario 2 File Gateway
+#AWS Hybrid Storage Workshop - Scenario 2 File Gateway
 
 ## License
 
