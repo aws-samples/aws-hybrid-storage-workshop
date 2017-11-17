@@ -12,7 +12,7 @@ In this module, you’ll deploy AWS storage gateway in file mode in the same net
 
 ![scenario 2 diagram 3](../../images/scenario-2-diagram-3.png)
 
-The EC2 instance in eu-west-1 is to simulate the physical server in on-premises data center and a storage gateway is deployed on another EC2 instance to act as an on-premises file storage gateway. 
+The EC2 instance in eu-west-1 is to simulate the physical server in on-premises data center and a storage gateway is deployed on another EC2 instance to act as an on-premises file storage gateway.
 
 The Linux EC2 instance use NFS mount to connect to the file gateway.  Media files are copied to file server, which actually store all files in AWS S3 bucket in the other region. The cross region replication and lifecycle policy configured in module 1 will also be applied to the new S3 data.
 
@@ -39,7 +39,7 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 ![scenario-2-module-2-Picture1](../../images/scenario-2-module-2-Picture1.png)
 
 6.	Click **Next** Again. (skipping IAM advanced section)
-7.	On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**. 
+7.	On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**.
 
 Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready to move on to the next step2
 
@@ -57,7 +57,7 @@ From the AWS Management Console, select **Storage Gateway** from within services
 ![scenario-2-module-2-Picture2](../../images/scenario-2-module-2-Picture2.png)
 </p></details>
 
-### 3. Create a file share connected to your primary S3 bucket 
+### 3. Create a file share connected to your primary S3 bucket
 
 A file share can be created on the storage gateway to be used by NFS client. The file share also connects to the S3 bucket where the data is actually stored in the form of objects. Unix file permissions for each file and folder are stored as object metadata within objects in S3.
 
@@ -81,14 +81,14 @@ A file share can be created on the storage gateway to be used by NFS client. The
 At this point you can mount the file share on the Linux NFS client and gain access to the associated S3 bucket.
 
 <details>
-<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p> 
+<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
 
 1.	SSH into the Linux Instance created in module 1
 2.	Create the directory that will contain the NSF shared files
 
 `sudo mkdir -p /mnt/nfs/s3`
 
-3.	Mount your file share, the mount command can be found from 
+3.	Mount your file share, the mount command can be found from
 
 `# sudo mount -t nfs -o nolock [Your gateway VM IP address]:/[mount path on your client] [MountPath]`
 
@@ -119,7 +119,7 @@ tmpfs                                      497M     0  497M   0% /dev/shm
 In this module, we will use the Linux instance created in module 1 as NFS client and copy our sample data to S3 using standard linux commands.
 
 <details>
-<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p> 
+<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
 
 1. In Linux test instance, copy media file to file gateway
 
@@ -130,12 +130,27 @@ cp -v *.jpg /mnt/nfs/s3/
 </p></details>
 
 ## Implementation Validation
-### 1.	Access the content in the primary S3 bucket
+### 1. Access the content in the primary S3 bucket
 
 <details>
-<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p> 
+<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
 
-1. On the Amazon S3 management console, navigate to your primary bucket and check to see that the 200 images files are stored as objects within.
+1. In the Amazon S3 management console, navigate to your primary bucket and check to see that the 200 images files are stored as objects within.
 
-![scenario-2-module-2-Picture5](../../images/scenario-2-module-2-Picture5.png)
+![scenario-2-module-2-Picture5](../../images/scenario-2-module-2-Picture6.png)
 </p></details>
+
+### 2. Verify S3 cross region replication is replicating objects to the secondary S3 bucket in eu-west-2.
+
+<details>
+<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
+
+1. In  the Amazon S3 management console, view the content under S3 replica bucket. It should display the same 200 JPEG files in the region of EU (London).
+
+</p></details>
+
+## Scenario complete
+
+Congratulation you have completed the second scenario. In this workshop you successfully copied data from an nfs client in eu-west-1 to a primary S3 bucket in eu-central-1. Additionally, objects written in the primary bucket were replicated to a secondary bucket in eu-west-2. These objects will be life cycled to glacier after 30 days and in the real world might be kept to safeguard against accidental deletions that may occur the the primary objects in the primary S3 bucket.
+
+## Clean-up
