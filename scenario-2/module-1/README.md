@@ -28,4 +28,4 @@ You can launch this AWS CloudFormation template in the eu-west-1 region to build
 
 Region| Launch
 ------|-----
-EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=hybrid-scenario-2-module-1&templateURL=https://raw.githubusercontent.com/aws-samples/aws-hybrid-storage-workshop/master/scenario-2/module-1/scenario2-step1-deploy-linux1-(eu-west-1).json)
+EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=hybrid-scenario-2-module-1&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario2-step1-deploy-linux1-(eu-west-1).json)
