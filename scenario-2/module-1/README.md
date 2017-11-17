@@ -28,19 +28,20 @@ You can launch a customized instance using the following AWS CloudFormation temp
 
 ### CloudFormation Launch Instructions
 
-Region| Launch| Tip
-------|-----|-----
-EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=hybrid-scenario-2-module-1&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario2-step1-deploy-linux1-(eu-west-1).json) | Right click and open in new tab
-
 1.	Right click the **Launch Stack** link above and "open in new tab"
 
-![Picture1](images/Picture1.png)
+Region| Launch
+------|-----
+EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=hybrid-scenario-2-module-1&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario2-step1-deploy-linux1-(eu-west-1).json)
 
 2.	Click **Next** on the Select Template page.
 3.	Select your default VPC and any one of the subnets within that vpc.  Note the subnet need to have a IGW attached.
 4.	If you already have an Access Key Pair for this region that you have access to, enter that key pair.  Otherwise, you will need to create a new key pair. [creating a key pair using amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair)
 5.	Leave the Allow SSH access from as 0.0.0.0/0 or enter the public IP of the computer from which you plan to access the Windows server.  You can find your public IP address at http://www.whatismypublicip.com/
 6.	Click Next.
+
+![Picture1](images/Picture1.png)
+
 
 
 
