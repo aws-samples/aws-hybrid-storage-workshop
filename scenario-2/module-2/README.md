@@ -97,13 +97,15 @@ For Example:
 
 4.	Check the directory has been mounted using df or mount command
 
-	```df –h
-  mount
-  ```
+```
+df –h
+mount
+```
 
 Example output:
 
-```[ec2-user@ip-172-31-11-236 data]$ df -h
+```
+[ec2-user@ip-172-31-11-236 data]$ df -h
 Filesystem                                 Size  Used Avail Use% Mounted on
 devtmpfs                                   488M   60K  488M   1% /dev
 tmpfs                                      497M     0  497M   0% /dev/shm
@@ -121,11 +123,11 @@ In this module, we will use the Linux instance created in module 1 as NFS client
 
 1. In Linux test instance, copy media file to file gateway
 
-`cd /media/data/`
-
-`cp *.jpg /mnt/nfs/s3/`
+```
+cd /media/data/
+cp *.jpg /mnt/nfs/s3/
+```
 </p></details>
-
 
 ## Implementation Validation
 ### 1.	Access the content in the primary S3 bucket
@@ -137,3 +139,7 @@ In this module, we will use the Linux instance created in module 1 as NFS client
 
 ![scenario-2-module-2-Picture4](../../images/scenario-2-module-2-Picture5.png)
 </p></details>
+
+ 
+
+
