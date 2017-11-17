@@ -32,4 +32,8 @@ This scenario will also step you though configuring advanced S3 features S3 Life
 
 Files that you write to the NFS interface in eu-west-1 will be accessible from the NFS mount point on your Linux instance and both a primary and secondary bucket in independent AWS regions.
 
+![File Gateway Scenario Architecture](images/scenario-2-overview.png)
 
+In this scenario, you will leverage S3 buckets and features, AWS Storage Gateway (file mode), an EC2 Linux Instance, Security Groups and Cloud formation (to automate deployment of some components)
+
+![Get started on Scenario 2](scenario-2/)
