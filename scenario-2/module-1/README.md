@@ -160,4 +160,4 @@ You can either upload it using the AWS Management Console, or you use the AWS CL
 
 Congratulations, you now have a Linux instance in eu-west-1, a primary bucket in eu-central-1 and a replicated bucket in eu-west-2. When you are ready you can move to the second module.
 
-[Deploy Storage Gateway in File mode and integrate with S3](../module-2/README.md)
+Module 2: [Deploy Storage Gateway in File mode and integrate with S3](../module-2/README.md)
