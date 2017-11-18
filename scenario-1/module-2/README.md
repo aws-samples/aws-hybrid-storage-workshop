@@ -32,7 +32,7 @@ Note: We have kept the volume sizes small to reduce cost of the storage for this
 10.	Click **Next** Again. (skipping IAM advanced section)
 11.	On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**.
 
-![scenario-1-module-1-Picture2](../../images/scenario-1-module-1-Picture2.png)
+![iam-accept](../../images/iam-accept.png)
 
 Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready to move on to the next step.
 </p></details>
