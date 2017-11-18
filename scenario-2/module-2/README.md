@@ -88,7 +88,7 @@ At this point you can mount the file share on the Linux NFS client and gain acce
 
 `# sudo mount -t nfs -o nolock [Your gateway VM IP address]:/[mount path on your client] [MountPath]`
 
-For Example:
+Example
 `sudo mount -t nfs -o nolock 172.31.10.98:/my-storage-workshop-bucket1 /mnt/nfs/s3`
 
 4.	Check the directory has been mounted using df or mount command
