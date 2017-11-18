@@ -161,3 +161,5 @@ Module 2: [Deploy Storage Gateway in File mode and integrate with S3](../module-
 ## License
 
 This library is licensed under the Amazon Software License.
+
+[Back to the main workshop scenarios page](../../README.md)
