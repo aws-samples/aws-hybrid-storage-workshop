@@ -2,13 +2,13 @@
 
 ## Introduction
 
-In this module, you will generate an EBS volume from the snapshot of your gateway volume in the Frankfurt region. The volume will be attached to a new EC2 instance which you will connect to, to verify all expected data is there. At this point you will have successfully migrated from a windows instance in Ireland eu-west-1 (simulating on-premises OS) to the AWS Fankfurt eu-central-1 (which is just being itself ;))
+In this module, you will launch an EC2 instance with a secondary EBS volume created from the snapshot of your gateway volume from the previous module. You will RDP connect to the new instance and verify all expected data is now in the Frankfurt region. At which point you will have successfully migrated from a windows instance in Ireland eu-west-1 (simulating on-premises OS) to a windows instance Fankfurt (eu-central-1, which is just being itself ;) ).
 
 ## Architecture overview
 
 ![scenario-1-cutover-1](../../images/scenario-1-cutover-1.png)
 
-### 1.	Deploy Windows Instance using CloudFormation Template
+### 1.	Deploy Windows Instance with EBS volume using CloudFormation Template
 
 <details>
 <summary><strong>CloudFormation Launch Instructions (expand for details)</strong></summary><p>
@@ -17,7 +17,7 @@ In this module, you will generate an EBS volume from the snapshot of your gatewa
 
 Region| Launch
 ------|-----
-EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=storage-workshop-1b&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario1-step2-migrate-SGW1-(eu-west-1).json)
+EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=storage-workshop-1c&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario1-step3-cutover1-WIN2-(eu-central-2).json)
 
 2. Click **Next** on the Select Template page.
 3. Select your default VPC and any one of the subnets within that VPC.
