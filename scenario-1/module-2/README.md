@@ -41,6 +41,9 @@ Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready t
 
 ## 2. Verify the gateway is active and get its IP Address
 
+<details>
+<summary><strong>Verify gateway and get IP (expand for details)</strong></summary><p>
+
 1. From the **Services** drop-down, select **EC2**.
 2. You should see a new c4.2xlarge instance with the name "Hybrid Workshop - Migrate - Gateway Server 1 (storage-workshop-1b)"  in a *running* state.
 3. Refresh the instance view periodically (every 30 seconds) until you see the word *Activated* in the EC2 instance name.
@@ -55,8 +58,12 @@ You will now see the Gateway that you just provisioned listed. Verify that their
 6.	Click on the gateway to reveal the Details tab below. From the Details tab, make note of the *IP address* of the gateway and write it below. (We will use that address to connect our windows client to the storage gateways iSCSI interface.
 
 7.	Click Volumes from the left menu to see the volume that was created by the CloudFormation stack. The size should match what you specified in the configuration (1-5 GiB).
+</p></details>
 
 ## 3. Connect the windows server to the gateway volume
+
+<details>
+<summary><strong>Connect windows to gateway (expand for details)</strong></summary><p>
 
 1.	Now comes the fun part! We will now attach the volume from your Volume Gateway Service in Frankfurt to your Windows instance in Ireland, giving that instance access to both local cache storage in that Ireland at the same time as remotely writting all of its data to Frankfurt. 
 
@@ -66,40 +73,20 @@ You will now see the Gateway that you just provisioned listed. Verify that their
 
 ![scenario-1-module-2-Picture1](../../images/scenario-1-module-2-Picture1.png)
 
-<details>
-<summary><strong>Connect to your EC2 instance (expand for details)</strong></summary><p>
-
-1.	From the AWS console, click **Services** and select **EC2**  
-2.	Select **Instances** from the menu on the left.
-3.	Wait until the newly create instance shows as *running*.
-
-![scenario-1-module-1-Picture3](../../images/scenario-1-module-1-Picture3.png)
-
-4. Right click on your newly provisoined instance and select **connect** from the menu.
-5. Click **Get Password** and use your .pem to access the RDP administrator password. Keep a copy of the password for your RDP client.
-6. Click **Download Remote Desktop File** and open the file with your RDP client
-7. Use the password from step 5 to authenticate and connect your RDP client to your windows instance
-
-Note: For detailed instructions on How To connect to your Windows instance using an RDP client ([Connecting to Your Windows Instance](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.html))
-
-![scenario-1-module-1-Picture4](../../images/scenario-1-module-1-Picture4.png)
 </p></details>
+
+
 
 ## Validation Step
 
 <details>
-<summary><strong>Verify sample data exists on yourr EC2 instance (expand for details)</strong></summary><p>
+<summary><strong>Verify (expand for details)</strong></summary><p>
 
-Once you have connected to the Windows Instance via RDP, open the File Explorer and verify that there is a C: drive and a D: drive and that there are JPEG files in the D: drive.
-
-![scenario-1-module-1-Picture5](../../images/scenario-1-module-1-Picture5.png)
-
-You now have a Windows instance in eu-west-1 that contains a boot volume and a data volume. The secondary volume and it's data will be used as sample data for the other modules in this workshop.
 </p></details>
 
 ### Start next module
 
-Module 2: [Migrate data to an AWS Storage Gateway volume](../module-2/README.md)
+Module 3: [Cutover data volume to Amazon EBS in eu-central-1](../module-3/README.md)
 
 ## License
 
