@@ -56,7 +56,7 @@ Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready t
 
 </p></details>
 
-## 3. Create a clone from your orginal Frankfurt to present in London
+## 3. Create a clone from your first gateway volume and present it in London
 
 <details>
 <summary><strong>Create a clone from Gateway 1 to Gateway 2(expand for details)</strong></summary><p>
@@ -76,14 +76,59 @@ You will now see the Gateway that you just provisioned listed named "Hybrid-Work
 11.	Enter a name for the iSCSI target (ex ‘win2cutover’) and click Create volume.
 12.	Click Skip to bypass CHAP configuration.
 
-You will now see the new volume listed.
-
-25.	Click Frankfurt in the upper-right corner of the page, and select EU (London) to return to the eu-west-2 region.
-
-26.	We will now attach the volume from your new Volume Gateway in Frankfurt to your Windows instance in London just as we did in Module 2, giving that instance access to both local storage in that region, and storage in Frankfurt. 
-Return to your Windows instance, and open the iSCSI Initiator utility by clicking the Windows logo in the bottom left corner and typing ‘iscsi’ and then clicking iSCSI Initiator from the search results.
+You will now see the new volume listed in the AWS Storage Gateway console
 
 </p></details>
+
+## 4. Connect to the new windows instance in London
+
+<details>
+<summary><strong>Connect to the windows instance in London (expand for details)</strong></summary><p>
+
+1. Click **Frankfurt** in the upper-right corner of the page, and select **EU (London)** to return to the eu-west-2 region.
+2. From the AWS console, click **Services** and select **EC2**.
+3. Select **Instances** from the menu on the left.
+
+![scenario-1-module-4-Picture2](../../images/scenario-1-module-4-Picture2.png)
+
+4. Right click on your newly provisoined *windows* instance and select **connect** from the menu.
+5. Click **Get Password** and use your .pem to access the RDP administrator password. Keep a copy of the password for your RDP client.
+6. Click **Download Remote Desktop File** and open the file with your RDP client.
+7. Use the password from step 5 to authenticate and connect your RDP client to your windows instance.
+
+Note: For detailed instructions on How To connect to your Windows instance using an RDP client ([Connecting to Your Windows Instance](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.html))
+
+</p></details>
+
+## 5. Connect to cloned volume from windows instance in London
+
+We will now attach the volume from your new Volume Gateway in Frankfurt to your Windows instance in London just as we did in Module 2, giving that instance access to the clone volume we are hosting in Frankfurt. 
+
+<details>
+<summary><strong>Connect to cloned volume (expand for details)</strong></summary><p>
+  
+1. From your Windows instance, open the iSCSI Initiator utility by clicking the Windows logo in the bottom left corner and typing ‘iscsi’ and then clicking iSCSI Initiator from the search results.
+
+2. Click ‘Yes’ if prompted to enable the iSCSI service in Windows
+
+![scenario-1-module-2-Picture1](../../images/scenario-1-module-2-Picture1.png)
+
+3.	In the Targets tab of the iSCSI Initiator Properties window, enter the *IP address* that you wrote down for your Volume Gateway in the Quick Connect section and click the **Quick Connect** button. 
+
+You should see a target listed now with Connected status:
+
+![scenario-1-module-2-Picture2](../../images/scenario-1-module-2-Picture2.png)
+
+Your Windows instance is now connected with the Volume Gateway via iSCSI and the only volume that exists has been discovered by Windows and connected. This is your cloned volume, which is now mountable in London from Frankfurt
+
+5. Click **OK** to close the iSCSI Initiator Properties window.
+
+6. Now open Disk Management by right clicking the Windows logo in the lower-left corner and select the **Disk Management**. You will see a new Offline Disk 1. This contains a copy of the volume from the Volume Gateway you deployed in module 2. Bring the volume online by right-clicking the section describing the disk and selecting **Online**.
+</p></details>
+  
+</p></details>
+
+
 
 ## Validation Step
 
