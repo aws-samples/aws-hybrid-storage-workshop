@@ -46,7 +46,9 @@ Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready t
 
 ![scenario-1-module-1-Picture3](../../images/scenario-1-module-1-Picture3.png)
 
-4. Connect to the Instance you just created via RDP. For detailed instructions on How To connect to your Windows instance using an RDP client ([Connecting to Your Windows Instance](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.html))
+4. Connect to the Instance you just created via RD by 
+
+Note: For detailed instructions on How To connect to your Windows instance using an RDP client ([Connecting to Your Windows Instance](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.html))
 
 ![scenario-1-module-1-Picture4](../../images/scenario-1-module-1-Picture4.png)
 </p></details>
