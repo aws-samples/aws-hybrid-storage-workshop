@@ -1,9 +1,5 @@
 # AWS Hybrid Storage Workshop - Scenario 1 - Volume Gateway
 
-## License
-
-This library is licensed under the Amazon Software License.
-
 ## Prerequisites
 
 ### AWS Account
@@ -27,3 +23,7 @@ This scenario is broken into 2 modules:
 * **Module 2** - [Migrate data to an AWS Storage Gateway volume](module-2/README.md)
 * **Module 3** - [Cutover to volume data Amazon EBS](module-3/README.md)
 * **Module 4** - [Cutover to volume data to a remote location](module-4/README.md)
+
+## License
+
+This library is licensed under the Amazon Software License.
