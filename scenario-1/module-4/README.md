@@ -121,7 +121,7 @@ Your Windows instance is now connected with the Volume Gateway via iSCSI and the
 
 5. Click **Done** and **OK** to close the iSCSI Initiator Properties window.
 
-![scenario-1-module-4-Picture4](../../images/scenario-1-module-4-Picture4.png)
+![enable-iscsi](../../images/enable-iscsi.png)
 
 6. Now open Disk Management by right clicking the Windows logo in the lower-left corner and select the **Disk Management**. You will see a new Offline Disk 1. This contains a copy of the volume from the Volume Gateway you deployed in module 2. Bring the volume online by right-clicking the section describing the disk and selecting **Online**.
 
