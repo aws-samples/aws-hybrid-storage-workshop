@@ -73,6 +73,69 @@ You will now see the Gateway that you just provisioned listed. Verify that their
 
 ![scenario-1-module-2-Picture1](../../images/scenario-1-module-2-Picture1.png)
 
+4.	In the Targets tab of the iSCSI Initiator Properties window, enter the IP address that you wrote down for your Volume Gateway in the Quick Connect section and click the ‘Quick Connect’ button. 
+
+You should see a target listed now with Connected status:
+
+![scenario-1-module-2-Picture2](../../images/scenario-1-module-2-Picture2.png)
+
+Your Windows instance is now connected with the Volume Gateway via iSCSI and the only volume that exists has been discovered by Windows and connected.
+
+Now we need to configure the volume for storage!
+
+23.	Click OK to close the iSCSI Initiator Properties window and open Computer Management by clicking the Windows logo in the lower-left corner and typing ‘Computer Management’ then clicking that from the search results.
+
+Once it opens, select the Disk Management module. You will see a new Offline Disk 2 of Unknown type. This is your volume from the Volume Gateway. The size should match the volume size on your gateway. However, since Volume Gateway is presenting this as raw block storage (like a new SAN volume would look in a traditional datacenter), we need to bring it online and format it so Windows can use it.
+
+24.	To format the new volume, first we need to bring it online by right-clicking the section describing the disk and selecting Online.
+
+
+![scenario-1-module-2-Picture3](../../images/scenario-1-module-2-Picture3.png)
+
+25.	After it is online, right-click the disk again and select Initialize Disk. Leave all the default settings and click OK.
+26.	Now click in the blank white space of the disk and select New Simple Volume.
+27.	Click Next on the first page of the New Simple Volume Wizard.
+28.	Leave the default to allocate all available storage to the new volume and click Next.
+29.	Leave the default setting to mount the new volume as the E: drive and click Next.
+30.	Leave the default settings of NTFS and the Default unit allocation size. You can change the Volume Label if you’d like, but leave the box checked for Quick Format, and click Next and then Finish to format the disk.
+
+31.	You can now open File Explorer and see the new E: drive. Let’s copy our data over to the gateway volume. Open Command Prompt and use robocopy to mirror your D: drive to the newly mounted E: drive:
+
+robocopy d: e: /MIR
+
+Check the E: drive in File Explorer and you should see all of the data that was on D: also on E: now. 
+
+```
+What just happened?
+
+When you copied the data from the D: drive to the E: drive within your Windows instance, underneath Windows, you copied the data from your Windows instance’s EBS volume to the Volume Gateway. When this happened, the gateway received the data into its local cache, and then began to copy the data up to S3 in the Frankfurt (eu-central-1) region via its local Upload Buffer automatically. Pretty cool, huh?
+```
+
+32.	From File Explorer, see how much data is on the E: drive. Alternatively, you can do this from the command prompt with the command ‘dir e:’ which will display the number of files as well as the total storage. For the default data set, this should be 11,669,707 bytes.
+
+Now, let’s create a snapshot of this volume so we can migrate our data to the cloud permanently.
+
+33.	Your web management console should still be in the Storage Gateway service in the Frankfurt region, but if not, navigate back there.
+34.	Click on the volume in the Volumes section. You’ll see that there’s now some usage on the volume that’s reflected in the console. Of course, we expected that…
+
+From the Actions drop-down, select Create EBS Snapshot. Enter a description for the snapshot (ex. Data migrated from Windows server to AWS), and click Create EBS snapshot button.
+
+35.	From the Services drop-down, select EC2 to return to the EC2 management console. Then select Snapshots from the left menu. Our new snapshot will probably still be ‘pending’ so we’ll wait for it to finish.
+
+Note that the size matches the size of the volume, not the amount of data created. So, when you create a volume from a snapshot, you know how large the volume will be. However, underneath, only the actual data blocks are stored, saving you money!
+
+In the next module you’ll deploy a Windows server in AWS (Frankfurt) with the snapshot data attached, effectively migrating your server and its data.
+
+Architecture
+After this module, you have added to your architecture a new EC2 instance in the Ireland (eu-west-1) region which is your Frankfurt Volume Gateway. It has four EBS volumes:
+An 80 GiB and 10 GiB volume for the gateway O/S
+1 10 GiB volume for the local cache
+1 10 GiB volume for the upload buffer
+Your Volume Gateway was configured with one volume, and we took a snapshot of that volume in the Frankfurt region. 
+
+
+
+
 </p></details>
 
 
