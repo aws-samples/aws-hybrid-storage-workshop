@@ -22,17 +22,11 @@ EU (Frankfurt) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWS
 2. Click **Next** on the Select Template page.
 3. Select your default VPC and any one of the subnets within that VPC.
 4. If you already have an Access Key Pair for this region that you have access to, enter that key pair.  Otherwise, you will need to create a new key pair.  Instructions to create a new key pair.
-5. Select a subnet from the drop-down list.
-5. Leave Instance Type, Gateway Cache Disk Size and Gateway Upload Buffer Disk Size at default values.
-6. Choose a size for your volume that will be created on the gateway. It should be large enough to hold the data that you have on the D: drive of win1 instance you created in Module 1.
-7. Leave the Activation Region at eu-central-1
-8. Select the keypair that you used in Module 1
-9. Select the Security Group that was created in Module 1 named "storage-workshop-1a-win1SecurityGroup...". This will allow our windows instance network access (iSCSI) to the gateway that is soon to be deployed in the same VPC.
+5. Leave Instance Typ as t2.medium
+6. If you already have an Access Key Pair for this region that you have access to, enter that key pair.  Otherwise, you will need to create a new key pair.  Instructions to create a new key pair.
+9. Enter the snapshot ID from the last nodule
 10.	Click **Next**.
-11.	Click **Next** Again. (skipping IAM advanced section)
-12.	On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**.
-
-![scenario-1-module-1-Picture2](../../images/scenario-1-module-1-Picture2.png)
+11.	Click **Next** Again. 
 
 Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready to move on to the next step.
 </p></details>
