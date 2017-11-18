@@ -21,8 +21,8 @@ This scenario is broken into 4 workshop modules:
 
 * **Module 1** - [Deploy windows instance with sample data in eu-west-1](module-1/README.md)
 * **Module 2** - [Migrate data to an AWS Storage Gateway volume](module-2/README.md)
-* **Module 3** - [Cutover to volume data Amazon EBS](module-3/README.md)
-* **Module 4** - [Cutover to volume data to a remote location](module-4/README.md)
+* **Module 3** - [Cutover data volume to Amazon EBS in eu-central-1](module-3/README.md)
+* **Module 4** - [Cutover data volume to a remote location eu-west-2](module-4/README.md)
 
 ## License
 
