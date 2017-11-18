@@ -1,9 +1,5 @@
 # Deploy Linux Instance & configure S3 Storage Solution with CRR and Lifecycle Policy
 
-## License
-
-This library is licensed under the Amazon Software License.
-
 ## Introduction
 
 In this module, you will deploy a Linux EC2 instance to simulate on-premises server with a root EBS volume with media data on it in the eu-west-1 (Ireland) AWS region. You will also create two S3 buckets in two different regions and configure advanced S3 features: S3 Lifecycle Policies and Cross Region Replication (CRR).
@@ -161,3 +157,7 @@ You can either upload it using the AWS Management Console, or you use the AWS CL
 Congratulations, you now have a Linux instance in eu-west-1, a primary bucket in eu-central-1 and a replicated bucket in eu-west-2. When you are ready you can move to the second module.
 
 Module 2: [Deploy Storage Gateway in File mode and integrate with S3](../module-2/README.md)
+
+## License
+
+This library is licensed under the Amazon Software License.
