@@ -83,10 +83,10 @@ Your Windows instance is now connected with the Volume Gateway via iSCSI and the
 
 </p></details>
 
-## 3. Connect the windows server to the gateway volume
+## 3. Format AWS Storage Gateway Volume
 
 <details>
-<summary><strong>Connect windows to gateway (expand for details)</strong></summary><p>
+<summary><strong>Format AWS Storage Gateway Volume (expand for details)</strong></summary><p>
 
 Now we need to create a filesystem for our cloud backed volume.
 
