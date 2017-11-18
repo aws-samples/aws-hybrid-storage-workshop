@@ -28,4 +28,4 @@ This scenario is broken into 4 workshop modules:
 
 This library is licensed under the Amazon Software License.
 
-[Back to the main workshop scenarios page](../../README.md)
+[Back to the main workshop scenarios page](../README.md)
