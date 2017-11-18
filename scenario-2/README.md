@@ -1,9 +1,5 @@
 # AWS Hybrid Storage Workshop - Scenario 2 - File Gateway
 
-## License
-
-This library is licensed under the Amazon Software License.
-
 ## Prerequisites
 
 ### AWS Account
@@ -25,5 +21,9 @@ This scenario is broken into 2 modules:
 
 * **Module 1** - [Deploy Linux Instance & configure S3 Storage Solution with CRR and Lifecycle Policy](module-1/README.md)
 * **Module 2** - [Deploy Storage Gateway in File mode and integrate with S3](module-2/README.md)
+
+## License
+
+This library is licensed under the Amazon Software License.
 
 [Back to the main workshop scenarios page](../README.md)
