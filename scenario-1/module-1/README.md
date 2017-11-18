@@ -23,9 +23,7 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 7.	Click **Next** Again. (skipping IAM advanced section)
 8.	On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**.
 
-Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready to move on to the next step2
-
-
+Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready to move on to the next step.
 
 ## Architecture Overview
 
