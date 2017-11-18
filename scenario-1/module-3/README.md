@@ -8,7 +8,7 @@ In this module, you will launch an EC2 instance with a secondary EBS volume crea
 
 ![scenario-1-cutover-1](../../images/scenario-1-cutover-1.png)
 
-### 1.	Deploy Windows Instance with EBS volume using CloudFormation Template
+### 1.	Deploy Windows Instance with EBS volume using CloudFormation in Frankfurt (eu-central-1)
 
 <details>
 <summary><strong>CloudFormation Launch Instructions (expand for details)</strong></summary><p>
@@ -17,7 +17,7 @@ In this module, you will launch an EC2 instance with a secondary EBS volume crea
 
 Region| Launch
 ------|-----
-EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=storage-workshop-1c&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario1-step3-cutover1-WIN2-(eu-central-2).json)
+EU (Frankfurt) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?stackName=storage-workshop-1c&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario1-step3-cutover1-WIN2-(eu-central-1).json)
 
 2. Click **Next** on the Select Template page.
 3. Select your default VPC and any one of the subnets within that VPC.
