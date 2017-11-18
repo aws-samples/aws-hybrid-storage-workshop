@@ -48,21 +48,18 @@ Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready t
 
 1. From the **Services** drop-down, select **EC2**.
 2. Select **instances** from the side menuw
-3.	Refresh the **instances** view should see a new c4.2xlarge instance with the name "Hybrid Workshop - Cutover 2 - Gateway Server 2 (storage-workshop-1d)" and a t2.medium with the name "Hybrid Workshop - Cutover 2 - Windows Server 3 (storage-workshop-1d)". 
-4.	From the Services drop-down, select **Storage Gateway**.
+3.	Refresh the **instances** view until you see a new c4.2xlarge instance with the name "Hybrid Workshop - Cutover 2 - Gateway Server 2 (storage-workshop-1d)" and a t2.medium with the name "Hybrid Workshop - Cutover 2 - Windows Server 3 (storage-workshop-1d)". Wait for both these instances pass their status checks before continuing.
+4. From the Services drop-down, select **Storage Gateway**.
 5. Click on **London** in the upper-right corner and select **EU (Frankfurt)** from the list to switch the console to the eu-central-1 region.
-You will now see the Gateway that you just provisioned listed in addition to the Gateway you provisioned in Module 2. Verify that the Status is ‘Running’.
-
-17.	Click on the new gateway named to reveal the Details tab below. From the Details tab, make note of the IP address of the gateway and write it below.
-
-_____________________________
-18.	Click Volumes from the left menu. You will see a single volume which you created in Module 2. We will now create a new volume on the new gateway by cloning the existing volume. Click the Create Volume button.
-19.	Select the new gateway from the list. You many need to hover over the options to verify the gateway name matches what you documented in step 17.
-20.	Enter 1 GiB for the Capacity
-21.	Select Clone from last recovery point for the Volume contents
-22.	For the Source volume, select your existing volume from the gateway created in Module 2.
-23.	Enter a name for the iSCSI target (ex ‘win1cutover’) and click Create volume.
-24.	Click Skip to bypass CHAP configuration.
+You will now see the Gateway that you just provisioned listed named "Hybrid Workshop - Cutover 2 - Gateway Server **2** " in addition to the Gateway you provisioned in Module 2. Verify that the Status is *‘Running’*.
+6. Click on the new gateway named "Hybrid Workshop - Cutover 2 - Gateway Server **2** " to reveal the Details tab below. From the Details tab, make note of the IP address of the gateway and write it below.
+7.	Click Volumes from the left menu. You will see a single volume which you created in Module 2. We will now create a new volume on the new gateway by cloning the existing volume. Click the **Create Volume** button.
+19.	Select the new gateway from the list. You many need to hover over the options to verify the gateway name matches ends in "Gateway Server **2**".
+8.	Select a capacity that is larger or equal to your last gateway volume.
+9.	Select Clone from last recovery point for the Volume contents
+10.	For the Source volume, select your existing volume from the gateway created in Module 2.
+11.	Enter a name for the iSCSI target (ex ‘win2cutover’) and click Create volume.
+12.	Click Skip to bypass CHAP configuration.
 
 You will now see the new volume listed.
 
