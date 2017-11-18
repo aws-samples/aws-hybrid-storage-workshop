@@ -59,7 +59,7 @@ Note: For detailed instructions on How To connect to your Windows instance using
 ## Validation Step
 
 <details>
-<summary><strong>Verify sample data exists on yourr EC2 instance (expand for details)</strong></summary><p>
+<summary><strong>Verify sample data exists on your EC2 instance (expand for details)</strong></summary><p>
 
 Once you have connected to the Windows Instance via RDP, open the File Explorer and verify that there is a C: drive and a D: drive and that there are JPEG files in the D: drive.
 
