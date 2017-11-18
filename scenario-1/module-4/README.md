@@ -56,10 +56,10 @@ Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready t
 
 </p></details>
 
-## 3. Create a clone from your first gateway volume and present it in London
+## 3. Clone volume from Gateway-Server-1 to Gateway-Server-2 for access in London
 
 <details>
-<summary><strong>Create a clone from Gateway 1 to Gateway 2(expand for details)</strong></summary><p>
+<summary><strong>Clone volume from Gateway-Server-1 to Gateway-Server-2 for access in London (expand for details)</strong></summary><p>
 
 4. From the Services drop-down, select **Storage Gateway**.
 5. Click on **London** in the upper-right corner and select **EU (Frankfurt)** from the list to switch the console to the eu-central-1 region.
