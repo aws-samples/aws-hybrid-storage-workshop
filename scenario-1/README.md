@@ -27,3 +27,5 @@ This scenario is broken into 4 workshop modules:
 ## License
 
 This library is licensed under the Amazon Software License.
+
+[Back to the main workshop scenarios page](../../README.md)
