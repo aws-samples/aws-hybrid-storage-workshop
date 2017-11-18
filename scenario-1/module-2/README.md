@@ -23,16 +23,14 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 
 2. Click **Next** on the Select Template page.
 3. Select your default VPC and any one of the subnets within that VPC.
-4. If you already have an Access Key Pair for this region that you have access to, enter that key pair.  Otherwise, you will need to create a new key pair.  Instructions to create a new key pair.
-5. Select a subnet from the drop-down list.
-5. Leave Instance Type, Gateway Cache Disk Size and Gateway Upload Buffer Disk Size at default values.
-6. Choose a size for your volume that will be created on the gateway. It should be large enough to hold the data that you have on the D: drive of win1 instance you created in Module 1.
+4. Leave Instance Type, Gateway Cache Disk Size and Gateway Upload Buffer Disk Size at default values.
+5. Choose a size between 1GiB and 10GiB for the volume that will be presented by the gateway and stored in Frankfurt. 
+Note: We have kept the volume sizes small to reduce cost of the storage for this workshop, in the real world volumes are much larger.
 7. Leave the Activation Region at eu-central-1
-8. Select the keypair that you used in Module 1
-9. Select the Security Group that was created in Module 1 named "storage-workshop-1a-win1SecurityGroup...". This will allow our windows instance network access (iSCSI) to the gateway that is soon to be deployed in the same VPC.
-10.	Click **Next**.
-11.	Click **Next** Again. (skipping IAM advanced section)
-12.	On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**.
+8. Select the Security Group that was created in Module 1 named "storage-workshop-1a-win1SecurityGroup...". This will allow our windows instance network access (iSCSI) to the gateway that is soon to be deployed in the same VPC.
+9.	Click **Next**.
+10.	Click **Next** Again. (skipping IAM advanced section)
+11.	On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**.
 
 ![scenario-1-module-1-Picture2](../../images/scenario-1-module-1-Picture2.png)
 
