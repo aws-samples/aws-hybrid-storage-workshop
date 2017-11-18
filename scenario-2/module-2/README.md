@@ -1,8 +1,4 @@
-[# Deploy AWS Storage Gateway in File mode and integrate with S3
-
-## License
-
-This library is licensed under the Amazon Software License.
+# Deploy AWS Storage Gateway in File mode and integrate with S3
 
 ## Introduction
 
@@ -165,3 +161,8 @@ To make sure all resources are deleted after this workshop scenario make sure yo
 4. Destroy the cloud formation stack in eu-west-1 named "storage-workshop-21"
 
 [Back to the workshop scenarios page](../../README.md)
+
+
+## License
+
+This library is licensed under the Amazon Software License.
