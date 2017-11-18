@@ -6,11 +6,11 @@ In this module, you'll deploy Windows Server to simulate on-premises server with
 
 ### 1.	Deploy Windows Instance using CloudFormation Template
 
-1.	Click the **Launch Stack** link below for the EU region.
+1.	Right click the **Launch Stack** link below and "open in new tab"
 
 Region| Launch
 ------|-----
-EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=storage-workshop-2a&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario2-step1-deploy-linux1-(eu-west-1).json)
+EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=storage-workshop-1a&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario1-step1-deploy-WIN1-(eu-west-1).json)
 
 2.	Click **Next** on the Select Template page.
 3.	Select your default VPC and any one of the subnets within that VPC.
@@ -20,7 +20,11 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 
 ![scenario-1-module-1-Picture1](../../images/scenario-1-module-1-Picture1.png)
 
-You can launch this AWS CloudFormation template in the eu-west-1 region to build the necessary resources automatically.
+7.	Click **Next** Again. (skipping IAM advanced section)
+8.	On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**.
+
+Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready to move on to the next step2
+
 
 
 ## Architecture Overview
