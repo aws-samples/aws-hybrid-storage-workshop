@@ -29,7 +29,7 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 6. Choose a size for your volume that will be created on the gateway. It should be large enough to hold the data that you have on the D: drive of win1 instance you created in Module 1.
 7. Leave the Activation Region at eu-central-1
 8. Select the keypair that you used in Module 1
-9. Select the Security Group that was created in Module 1. The name in parenthesis should match the stack name you chose in Module 1.
+9. Select the Security Group that was created in Module 1 named "storage-workshop-1a-win1SecurityGroup...". This will allow our windows instance network access (iSCSI) to the gateway that is soon to be deployed in the same VPC.
 10.	Click **Next**.
 11.	Click **Next** Again. (skipping IAM advanced section)
 12.	On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**.
