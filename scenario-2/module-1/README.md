@@ -29,7 +29,7 @@ You can launch a customized instance using the following AWS CloudFormation temp
 
 Region| Launch
 ------|-----
-EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=storage-workshop-2a&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario2-step1-deploy-linux1-(eu-west-1).json)
+EU (Ireland) | ![![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=storage-workshop-2a&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario2-step1-deploy-linux1-(eu-west-1).json)
 
 2. Click **Next** on the Select Template page.
 3. Select your default VPC and any one of the subnets within that vpc.  Note the subnet need to have a IGW attached.
