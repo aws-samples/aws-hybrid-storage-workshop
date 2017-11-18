@@ -28,16 +28,18 @@ EU (London) | [![Launch Module 1 in eu-west-2](http://docs.aws.amazon.com/AWSClo
 6. Leave the cache and upload buffer sizes as 10GiB
 7. Leave the activation region as (eu-central-1), which is where our volume data resides.
 8. Select the key pair from the last module
-9. Leave the security ...
-7. Click **Next**.
+9. Leave the **Allow DRP access from** field as 0.0.0.0/0 or enter the public IP of the computer from which you plan to access the Windows server.  You can find your public IP address at http://www.whatismypublicip.com/
 
 ![scenario-1-module-4-Picture1](../../images/scenario-1-module-4-Picture1.png)
 
-8. Click **Next** Again. 
-9. Click **Create**.
+10. Click **Next**.
+11. Click **Next**. (skipping IAM advanced section)
+
+8.	On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**.
+
+![scenario-2-module-1-Picture1](../../images/scenario-2-module-1-Picture1.png)
 
 Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready to move on to the next step.
-</p></details>
 
 ## 2. Connect the EC2 instance in Frankfurt eu-central-1 via RDP
 
