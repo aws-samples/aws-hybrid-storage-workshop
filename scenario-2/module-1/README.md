@@ -42,11 +42,9 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 7.	Click **Next** Again. (skipping IAM advanced section)
 8.	On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**.
 
-Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready to move on to the next step.
+![iam-accept](../../images/iam-accept.png)
 
-![scenario-2-module-1-Picture2](../../images/scenario-2-module-1-Picture2.png)
-
-Once the Cloudformation Stack shows a status of **CREATE_COMPLETE**, you can continue to the next step
+Once the Cloudformation Stack shows a status of *CREATE_COMPLETE*, you can continue to the next step.
 </p></details>
 
 ### 2.	SSH into Linux Instance created earlier and List the data
