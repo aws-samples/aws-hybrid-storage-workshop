@@ -46,7 +46,10 @@ Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready t
 
 ![scenario-1-module-1-Picture3](../../images/scenario-1-module-1-Picture3.png)
 
-4. Connect to the Instance you just created via RD by 
+4. Right click on your newly provisoined instance and select **connect** from the menu.
+5. Click **Get Password** and use your .pem to access the RDP administrator password. Keep a copy of the password for your RDP client.
+6. Click **Download Remote Desktop File** and open the file with your RDP client
+7. Use the password from step 5 to authenticate and connect your RDP client to your windows instance
 
 Note: For detailed instructions on How To connect to your Windows instance using an RDP client ([Connecting to Your Windows Instance](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.html))
 
