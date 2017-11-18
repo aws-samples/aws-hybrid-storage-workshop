@@ -123,11 +123,9 @@ Let’s copy our data over to the gateway volume.
 
 2. Check the E: drive in File Explorer and you should see all of the data that was on D: also on E: now. 
 
-```
-What just happened?
+### What just happened?
 
 When you copied the data from the D: drive to the E: drive within your Windows instance, underneath Windows, you copied the data from your Windows instance’s EBS volume to the Volume Gateway. When this happened, the gateway received the data into its local cache, and then began to copy the data up to S3 in the Frankfurt (eu-central-1) region via its local Upload Buffer automatically. Pretty cool, huh?
-```
 
 3. From File Explorer, see how much data is on the E: drive. 
 
