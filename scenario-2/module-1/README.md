@@ -39,9 +39,10 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 
 ![scenario-2-module-1-Picture1](../../images/scenario-2-module-1-Picture1.png)
 
-7. You can leave the IAM role and Advanced section
-8. Click **Next**
-9. On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**. 
+7.	Click **Next** Again. (skipping IAM advanced section)
+8.	On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**.
+
+Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready to move on to the next step2
 
 ![scenario-2-module-1-Picture2](../../images/scenario-2-module-1-Picture2.png)
 
