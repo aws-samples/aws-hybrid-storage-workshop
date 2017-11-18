@@ -119,7 +119,9 @@ Let’s copy our data over to the gateway volume.
 
 1. Open Command Prompt and use robocopy to mirror your D: drive to the newly mounted E: drive:
 
-`robocopy d: e: /MIR`
+```
+robocopy d: e: /MIR
+```
 
 2. Check the E: drive in File Explorer and you should see all of the data that was on D: also on E: now. 
 
@@ -131,7 +133,7 @@ When you copied the data from the D: drive to the E: drive within your Windows i
 
 </p></details>
 
-## 4. Create and EBS snapshot of the Storage Gateway volume.
+## 5. Create and EBS snapshot of the Storage Gateway volume.
 
 Now, let’s create an EBS snapshot of this volume so we can have a point in time copy that can be shared with EC2 instance in the Frankfurt region.
 
@@ -146,13 +148,12 @@ Now, let’s create an EBS snapshot of this volume so we can have a point in tim
 1. From the Actions drop-down, select **Create EBS Snapshot**. Enter a description for the snapshot (ex. Data migrated from Windows server to AWS), and click **Create EBS snapshot** button.
 2.	From the **Services** drop-down, select **EC2** to return to the EC2 management console. Then select Snapshots from the left menu. Our new snapshot will probably still be *pending* so we’ll wait for it to finish.
 
-,,,
-Note: that the size matches the size of the volume, not the amount of data created. So, when you create a volume from a snapshot, you know how large the volume will be. However, underneath, only the actual data blocks are stored, saving you money!
-,,,
+Note: The EBS snapshot size matches the size of the volume, not the amount of data created. So, when you create a volume from a snapshot, you know how large the volume will need to be to host the nested filesystem and partion. However, underneath, only the actual data blocks are stored, saving you money!
 
 </p></details>
 
 After this module, you have added to your architecture a new EC2 instance in the Ireland (eu-west-1) region which is your Frankfurt backed Volume Gateway. It has four EBS volumes:
+
 * 1 x 80 GiB volume for the gateway O/S
 * 1 x 10 GiB volume for the local cache
 * 1 x 10 GiB volume for the upload buffer
