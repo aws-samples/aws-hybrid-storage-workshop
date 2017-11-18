@@ -39,7 +39,32 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready to move on to the next step.
 </p></details>
 
-## 2. Connect the EC2 instance in eu-west-1 via RDP
+## 2. Verify the gateway is active and get its IP Address
+
+1. From the **Services** drop-down, select **EC2**.
+2. You should see a new c4.2xlarge instance with the name "Hybrid Workshop - Migrate - Gateway Server 1 (storage-workshop-1b)"  in a *running* state.
+3. Refresh the instance view periodically (every 30 seconds) until you see the word *Activated* in the EC2 instance name.
+4. From the Services drop-down, select **Storage Gateway**.
+
+Note: You will not see the gateway that was just provisioned here. While, we deployed the gateway into EC2 in the EU (Ireland) region, the gateway was activated in the EU (Frankfurt) region, so that is where we will find the gateway, and that is where the data written to it will be stored.
+
+5.	Click on **Ireland** in the upper-right corner and select **EU (Frankfurt)** from the list to switch the console to the eu-central-1 region.
+
+You will now see the Gateway that you just provisioned listed. Verify that their is a gateway named "Hybrid-Workshop-Gateway-Server-1...." and its status is *Running*.
+
+6.	Click on the gateway to reveal the Details tab below. From the Details tab, make note of the *IP address* of the gateway and write it below. (We will use that address to connect our windows client to the storage gateways iSCSI interface.
+
+7.	Click Volumes from the left menu to see the volume that was created by the CloudFormation stack. The size should match what you specified in the configuration (1-5 GiB).
+
+## 3. Connect the windows server to the gateway volume
+
+1.	Now comes the fun part! We will now attach the volume from your Volume Gateway Service in Frankfurt to your Windows instance in Ireland, giving that instance access to both local cache storage in that Ireland at the same time as remotely writting all of its data to Frankfurt. 
+
+2. Return to your Windows instance, and open the iSCSI Initiator utility by clicking the Windows logo in the bottom left corner and typing ‘iscsi’ and then clicking iSCSI Initiator from the search results.
+
+3. Click ‘Yes’ if prompted to enable the iSCSI service in Windows
+
+![scenario-1-module-2-Picture1](../../images/scenario-1-module-2-Picture1.png)
 
 <details>
 <summary><strong>Connect to your EC2 instance (expand for details)</strong></summary><p>
