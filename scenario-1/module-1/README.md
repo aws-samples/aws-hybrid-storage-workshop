@@ -4,6 +4,10 @@
 
 In this module, you'll deploy Windows Server to simulate on-premises server with a root EBS volume and data EBS volume (E:) in the eu-west-1 (Ireland) AWS region. The E: volume will contain 200 sample images which will be used as test data for the rest of the workshop.
 
+## Architecture overview
+
+
+
 ### 1.	Deploy Windows Instance using CloudFormation Template
 
 1.	Right click the **Launch Stack** link below and "open in new tab"
