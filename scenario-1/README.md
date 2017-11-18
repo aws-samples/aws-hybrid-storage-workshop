@@ -17,7 +17,7 @@ Resources consumed as part of this workshop will have a cost and it is recommend
 
 ## Workshop Modules ###
 
-This scenario is broken into 2 modules:
+This scenario is broken into 4 workshop modules:
 
 * **Module 1** - [Deploy windows instance with sample data in eu-west-1](module-1/README.md)
 * **Module 2** - [Migrate data to an AWS Storage Gateway volume](module-2/README.md)
