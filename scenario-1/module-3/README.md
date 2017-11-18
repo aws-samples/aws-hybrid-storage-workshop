@@ -33,6 +33,7 @@ EU (Frankfurt) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWS
 
 Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready to move on to the next step.
 </p></details>
+
 ## 2. Connect the EC2 instance in Frankfurt eu-central-1 via RDP
 
 <details>
