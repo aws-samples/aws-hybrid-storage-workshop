@@ -60,18 +60,18 @@ You will now see the Gateway that you just provisioned listed. Verify that their
 
 ## 3. Connect the windows server to the gateway volume
 
+Now comes the fun part! We will now attach the volume from your Volume Gateway Service in Frankfurt to your Windows instance in Ireland, giving that instance access to both local EBS storage in that Ireland at the same time as remotely write data to Frankfurt via the gateway volume.
+
 <details>
-<summary><strong>Connect windows to gateway (expand for details)</strong></summary><p>
+<summary><strong>Connect windows to gateway (expand for details)</strong></summary><p> 
 
-1.	Now comes the fun part! We will now attach the volume from your Volume Gateway Service in Frankfurt to your Windows instance in Ireland, giving that instance access to both local cache storage in that Ireland at the same time as remotely writting all of its data to Frankfurt. 
+1. Return to your Windows instanceRDP sesssion and open the iSCSI Initiator utility by clicking the Windows logo in the bottom left corner and typing ‘iscsi’ and then clicking iSCSI Initiator from the search results.
 
-2. Return to your Windows instance, and open the iSCSI Initiator utility by clicking the Windows logo in the bottom left corner and typing ‘iscsi’ and then clicking iSCSI Initiator from the search results.
-
-3. Click ‘Yes’ if prompted to enable the iSCSI service in Windows
+2. Click ‘Yes’ if prompted to enable the iSCSI service in Windows
 
 ![enable-iscsi](../../images/enable-iscsi.png)
 
-4.	In the Targets tab of the iSCSI Initiator Properties window, enter the *IP address* that you wrote down for your Volume Gateway in the Quick Connect section and click the **Quick Connect** button. 
+3.	In the Targets tab of the iSCSI Initiator Properties window, enter the *IP address* that you wrote down for your Volume Gateway in the Quick Connect section and click the **Quick Connect** button. 
 
 You should see a target listed now with Connected status:
 
