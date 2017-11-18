@@ -3,11 +3,12 @@
 ## Introduction
 
 In this module, you will deploy a Volume Gateway that will allow your data to be replicated to the Frankfurt region (AWS). You will deploy the gateway into the Ireland region in the same Availability Zone as the Windows instance you launched in Module 1. The gateway is registered in the Frankfurt region, however, and that is where the data will be stored for all volumes created on this gateway. 
+
 You will launch this AWS CloudFormation template in the eu-west-1 region to build the necessary resources automatically. This template will create a Storage Gateway in the Frankfurt (eu-central-1) region, but deploy it in EC2 in the Ireland region so it can be attached to your new Windows instance. The gateway will be activated by the template and the appropriate security group will be attached.
 
 ## Architecture overview
 
-![scenario-1-diagram-1](../../images/scenario-1-diagram-1.png)
+![scenario-1-diagram-2](../../images/scenario-1-diagram-2.png)
 
 ### 1.	Deploy Windows Instance using CloudFormation Template
 
@@ -20,16 +21,18 @@ Region| Launch
 ------|-----
 EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=storage-workshop-1a&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario1-step1-deploy-WIN1-(eu-west-1).json)
 
-2.	Click **Next** on the Select Template page.
-3.	Select your default VPC and any one of the subnets within that VPC.
-4.	If you already have an Access Key Pair for this region that you have access to, enter that key pair.  Otherwise, you will need to create a new key pair.  Instructions to create a new key pair.
-5.	Leave the Allow RDP access from as 0.0.0.0/0 or enter the public IP of the computer from which you plan to access the Windows server.  You can find your public IP address at http://www.whatismypublicip.com/
-6.	Click **Next**.
-
-![scenario-1-module-1-Picture1](../../images/scenario-1-module-1-Picture1.png)
-
-7.	Click **Next** Again. (skipping IAM advanced section)
-8.	On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**.
+2. Click **Next** on the Select Template page.
+3. Select your default VPC and any one of the subnets within that VPC.
+4. If you already have an Access Key Pair for this region that you have access to, enter that key pair.  Otherwise, you will need to create a new key pair.  Instructions to create a new key pair.
+5. Select a subnet from the drop-down list.
+5. Leave Instance Type, Gateway Cache Disk Size and Gateway Upload Buffer Disk Size at default values.
+6. Choose a size for your volume that will be created on the gateway. It should be large enough to hold the data that you have on the D: drive of win1 instance you created in Module 1.
+7. Leave the Activation Region at eu-central-1
+8. Select the keypair that you used in Module 1
+9. Select the Security Group that was created in Module 1. The name in parenthesis should match the stack name you chose in Module 1.
+10.	Click **Next**.
+11.	Click **Next** Again. (skipping IAM advanced section)
+12.	On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**.
 
 ![scenario-1-module-1-Picture2](../../images/scenario-1-module-1-Picture2.png)
 
