@@ -1,4 +1,4 @@
-# Deploy AWS Storage Gateway in File mode and integrate with S3
+[# Deploy AWS Storage Gateway in File mode and integrate with S3
 
 ## License
 
@@ -164,3 +164,4 @@ To make sure all resources are deleted after this workshop scenario make sure yo
 3. Destroy the cloud formation stack in eu-west-1 named "storage-workshop-2b" (wait for it to complete before deleting the next one)
 4. Destroy the cloud formation stack in eu-west-1 named "storage-workshop-21"
 
+[Back to the workshop scenarios page](../../README.md)
