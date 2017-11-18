@@ -69,7 +69,7 @@ You will now see the Gateway that you just provisioned listed. Verify that their
 
 3. Click ‘Yes’ if prompted to enable the iSCSI service in Windows
 
-![scenario-1-module-2-Picture1](../../images/scenario-1-module-2-Picture1.png)
+![enable-iscsi](../../images/enable-iscsi.png)
 
 4.	In the Targets tab of the iSCSI Initiator Properties window, enter the *IP address* that you wrote down for your Volume Gateway in the Quick Connect section and click the **Quick Connect** button. 
 
