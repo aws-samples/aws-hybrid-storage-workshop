@@ -52,7 +52,7 @@ Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready t
 
 Note: For detailed instructions on How To connect to your Windows instance using an RDP client ([Connecting to Your Windows Instance](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.html))
 
-![scenario-1-module-3-Picture3](../../images/scenario-1-module-1-Picture3.png)
+![scenario-1-module-3-Picture3](../../images/scenario-1-module-3-Picture3.png)
 
 After Windows console has launched, open Disk Management by right clicking the Windows logo in the lower-left corner and select the **Disk Management**. You will see a new Offline Disk 1. This contains a copy of the volume from the Volume Gateway you deployed in module 2. Bring the volume online by right-clicking the section describing the disk and selecting **Online**.
 </p></details>
