@@ -6,7 +6,7 @@ In this module, you'll deploy Windows Server to simulate on-premises server with
 
 ## Architecture overview
 
-
+![scenario-1-diagram-1](../../images/scenario-1-diagram-1.png)
 
 ### 1.	Deploy Windows Instance using CloudFormation Template
 
