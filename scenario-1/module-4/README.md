@@ -23,12 +23,15 @@ EU (London) | [![Launch Module 1 in eu-west-2](http://docs.aws.amazon.com/AWSClo
 
 2. Click **Next** on the Select Template page.
 3. Select your default VPC and any one of the subnets within that VPC.
-4. Leave Instance Typ as t2.medium
-5. Enter the snapshot ID from the last module (this will be the basis for the EBS volume that is created with this instance)
-6. If you already have an Access Key Pair for this region that you have access to, enter that key pair.  Otherwise, you will need to create a new key pair. ([Creating a key pair using amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair))
+4. Leave the Windows Instance Type as t2.medium
+5. Leave the Gateway Instance Type as c4.2xlarge
+6. Leave the cache and upload buffer sizes as 10GiB
+7. Leave the activation region as (eu-central-1), which is where our volume data resides.
+8. Select the key pair from the last module
+9. Leave the security ...
 7. Click **Next**.
 
-![scenario-1-module-3-Picture1](../../images/scenario-1-module-3-Picture1.png)
+![scenario-1-module-4-Picture1](../../images/scenario-1-module-4-Picture1.png)
 
 8. Click **Next** Again. 
 9. Click **Create**.
