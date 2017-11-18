@@ -10,7 +10,7 @@ You can launch this AWS CloudFormation template in the eu-west-2 region to build
 
 ![scenario-1-cutover-1](../../images/scenario-1-cutover-2.png)
 
-### 1.	Deploy Gateway & Windows Instance with EBS volume using CloudFormation in Frankfurt (eu-central-1)
+### 1.	Deploy Gateway & Windows Instance in Frankfurt (eu-central-1)
 
 <details>
 <summary><strong>CloudFormation Launch Instructions (expand for details)</strong></summary><p>
@@ -49,6 +49,9 @@ Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready t
 1. From the **Services** drop-down, select **EC2**.
 2. Select **instances** from the side menuw
 3.	Refresh the **instances** view until you see a new c4.2xlarge instance with the name "Hybrid Workshop - Cutover 2 - Gateway Server 2 (storage-workshop-1d)" and a t2.medium with the name "Hybrid Workshop - Cutover 2 - Windows Server 3 (storage-workshop-1d)". Wait for both these instances pass their status checks before continuing.
+
+![scenario-1-module-4-Picture2](../../images/scenario-1-module-4-Picture2.png)
+
 4. From the Services drop-down, select **Storage Gateway**.
 5. Click on **London** in the upper-right corner and select **EU (Frankfurt)** from the list to switch the console to the eu-central-1 region.
 You will now see the Gateway that you just provisioned listed named "Hybrid Workshop - Cutover 2 - Gateway Server **2** " in addition to the Gateway you provisioned in Module 2. Verify that the Status is *‘Running’*.
