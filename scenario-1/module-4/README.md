@@ -37,7 +37,7 @@ EU (London) | [![Launch Module 1 in eu-west-2](http://docs.aws.amazon.com/AWSClo
 
 8.	On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**.
 
-![scenario-2-module-1-Picture2](../../images/scenario-2-module-1-Picture2.png)
+![iam-accept](../../images/iam-accept.png)
 
 Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready to move on to the next step.
 
