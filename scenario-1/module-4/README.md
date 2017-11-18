@@ -41,27 +41,36 @@ EU (London) | [![Launch Module 1 in eu-west-2](http://docs.aws.amazon.com/AWSClo
 
 Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready to move on to the next step.
 
-## 2. Connect the EC2 instance in Frankfurt eu-central-1 via RDP
+## 2. Check your instances and configure your gateway with a cloned volume
 
 <details>
 <summary><strong>Connect to your EC2 instance (expand for details)</strong></summary><p>
 
-1.	From the AWS console, click **Services** and select **EC2**  
-2.	Select **Instances** from the menu on the left.
-3.	Wait until the newly create instance shows as *running*.
+1. From the **Services** drop-down, select **EC2**.
+2. Select **instances** from the side menuw
+3.	Refresh the **instances** view should see a new c4.2xlarge instance with the name "Hybrid Workshop - Cutover 2 - Gateway Server 2 (storage-workshop-1d)" and a t2.medium with the name "Hybrid Workshop - Cutover 2 - Windows Server 3 (storage-workshop-1d)". 
+4.	From the Services drop-down, select **Storage Gateway**.
+5. Click on **London** in the upper-right corner and select **EU (Frankfurt)** from the list to switch the console to the eu-central-1 region.
+You will now see the Gateway that you just provisioned listed in addition to the Gateway you provisioned in Module 2. Verify that the Status is ‘Running’.
 
-![scenario-1-module-3-Picture2](../../images/scenario-1-module-3-Picture2.png)
+17.	Click on the new gateway named to reveal the Details tab below. From the Details tab, make note of the IP address of the gateway and write it below.
 
-4. Right click on your newly provisoined instance and select **connect** from the menu.
-5. Click **Get Password** and use your .pem to access the RDP administrator password. Keep a copy of the password for your RDP client.
-6. Click **Download Remote Desktop File** and open the file with your RDP client
-7. Use the password from step 5 to authenticate and connect your RDP client to your windows instance
+_____________________________
+18.	Click Volumes from the left menu. You will see a single volume which you created in Module 2. We will now create a new volume on the new gateway by cloning the existing volume. Click the Create Volume button.
+19.	Select the new gateway from the list. You many need to hover over the options to verify the gateway name matches what you documented in step 17.
+20.	Enter 1 GiB for the Capacity
+21.	Select Clone from last recovery point for the Volume contents
+22.	For the Source volume, select your existing volume from the gateway created in Module 2.
+23.	Enter a name for the iSCSI target (ex ‘win1cutover’) and click Create volume.
+24.	Click Skip to bypass CHAP configuration.
 
-Note: For detailed instructions on How To connect to your Windows instance using an RDP client ([Connecting to Your Windows Instance](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.html))
+You will now see the new volume listed.
 
-![scenario-1-module-3-Picture3](../../images/scenario-1-module-3-Picture3.png)
+25.	Click Frankfurt in the upper-right corner of the page, and select EU (London) to return to the eu-west-2 region.
 
-After Windows console has launched, open Disk Management by right clicking the Windows logo in the lower-left corner and select the **Disk Management**. You will see a new Offline Disk 1. This contains a copy of the volume from the Volume Gateway you deployed in module 2. Bring the volume online by right-clicking the section describing the disk and selecting **Online**.
+26.	We will now attach the volume from your new Volume Gateway in Frankfurt to your Windows instance in London just as we did in Module 2, giving that instance access to both local storage in that region, and storage in Frankfurt. 
+Return to your Windows instance, and open the iSCSI Initiator utility by clicking the Windows logo in the bottom left corner and typing ‘iscsi’ and then clicking iSCSI Initiator from the search results.
+
 </p></details>
 
 ## Validation Step
