@@ -41,10 +41,10 @@ EU (London) | [![Launch Module 1 in eu-west-2](http://docs.aws.amazon.com/AWSClo
 
 Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready to move on to the next step.
 
-## 2. Check your instances and configure your gateway with a cloned volume
+## 2. Check your windows and gateway instances
 
 <details>
-<summary><strong>Connect to your EC2 instance (expand for details)</strong></summary><p>
+<summary><strong>Check to state of your new instances in London (expand for details)</strong></summary><p>
 
 1. From the **Services** drop-down, select **EC2**.
 2. Select **instances** from the side menuw
@@ -52,15 +52,25 @@ Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready t
 
 ![scenario-1-module-4-Picture2](../../images/scenario-1-module-4-Picture2.png)
 
+</p></details>
+
+## 3. Create a clone from your orginal Frankfurt to present in London
+
+<details>
+<summary><strong>Create a clone from Gateway 1 to Gateway 2(expand for details)</strong></summary><p>
+
 4. From the Services drop-down, select **Storage Gateway**.
 5. Click on **London** in the upper-right corner and select **EU (Frankfurt)** from the list to switch the console to the eu-central-1 region.
-You will now see the Gateway that you just provisioned listed named "Hybrid Workshop - Cutover 2 - Gateway Server **2** " in addition to the Gateway you provisioned in Module 2. Verify that the Status is *‘Running’*.
-6. Click on the new gateway named "Hybrid Workshop - Cutover 2 - Gateway Server **2** " to reveal the Details tab below. From the Details tab, make note of the IP address of the gateway and write it below.
+You will now see the Gateway that you just provisioned listed named "Hybrid-Workshop-Gateway-Server-**2**" in addition to the Gateway you provisioned in Module 2. Verify that the Status is *‘Running’*.
+6. Click on the new gateway named "Hybrid-Workshop-Gateway-Server-**2**" to reveal the Details tab below. From the Details tab, make note of the IP address of the gateway and write it below.
 7.	Click Volumes from the left menu. You will see a single volume which you created in Module 2. We will now create a new volume on the new gateway by cloning the existing volume. Click the **Create Volume** button.
 19.	Select the new gateway from the list. You many need to hover over the options to verify the gateway name matches ends in "Gateway Server **2**".
 8.	Select a capacity that is larger or equal to your last gateway volume.
 9.	Select Clone from last recovery point for the Volume contents
-10.	For the Source volume, select your existing volume from the gateway created in Module 2.
+10.	For the Source volume, select your existing volume from the gateway created in Module 2. (should be the only volume in the list)
+
+![scenario-1-module-4-Picture3](../../images/scenario-1-module-4-Picture3.png)
+
 11.	Enter a name for the iSCSI target (ex ‘win2cutover’) and click Create volume.
 12.	Click Skip to bypass CHAP configuration.
 
