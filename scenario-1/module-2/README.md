@@ -148,8 +148,6 @@ Now, let’s create an EBS snapshot of this volume so we can have a point in tim
 
 Note: The EBS snapshot size matches the size of the volume, not the amount of data created. So, when you create a volume from a snapshot, you know how large the volume will need to be to host the nested filesystem and partion. However, underneath, only the actual data blocks are stored, saving you money!
 
-</p></details>
-
 After this module, you have added to your architecture a new EC2 instance in the Ireland (eu-west-1) region which is your Frankfurt backed Volume Gateway. It has four EBS volumes:
 
 * 1 x 80 GiB volume for the gateway O/S
