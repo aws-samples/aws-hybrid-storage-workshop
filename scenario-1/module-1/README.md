@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this module, you'll deploy Windows Server to simulate on-premises server with a root EBS volume and data EBS volume (E:) in the eu-west-1 (Ireland) AWS region. The E: volume will contain 200 sample images which will be used as test data for the rest of the workshop.
+In this module, you'll deploy Windows Server to simulate on-premises server with a root volume C: (EBS) and data volume D: (EBS) in the eu-west-1 (Ireland) AWS region. The D: volume will contain 200 sample images which will be used as test data for the rest of the workshop.
 
 ## Architecture overview
 
@@ -53,11 +53,15 @@ Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready t
 
 ## Validation Step
 
+<details>
+<summary><strong>Verify sample data exists on yourr EC2 instance (expand for details)</strong></summary><p>
+
 Once you have connected to the Windows Instance via RDP, open the File Explorer and verify that there is a C: drive and a D: drive and that there are JPEG files in the D: drive.
 
 ![scenario-1-module-1-Picture5](../../images/scenario-1-module-1-Picture5.png)
 
 You now have a Windows instance in eu-west-1 that contains a boot volume and a data volume. The secondary volume and it's data will be used as sample data for the other modules in this workshop.
+</p></details>
 
 Module 2: [Migrate data to an AWS Storage Gateway volume](../module-2/README.md)
 
