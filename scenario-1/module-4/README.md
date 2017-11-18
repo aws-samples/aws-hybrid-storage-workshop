@@ -115,43 +115,46 @@ We will now attach the volume from your new Volume Gateway in Frankfurt to your 
 
 3.	In the Targets tab of the iSCSI Initiator Properties window, enter the *IP address* that you wrote down for your Volume Gateway in the Quick Connect section and click the **Quick Connect** button. 
 
-You should see a target listed now with Connected status:
-
-![scenario-1-module-2-Picture2](../../images/scenario-1-module-2-Picture2.png)
+You should see a target listed now with Connected status: *Connected*
 
 Your Windows instance is now connected with the Volume Gateway via iSCSI and the only volume that exists has been discovered by Windows and connected. This is your cloned volume, which is now mountable in London from Frankfurt
 
-5. Click **OK** to close the iSCSI Initiator Properties window.
+5. Click **Done** and **OK** to close the iSCSI Initiator Properties window.
+
+![scenario-1-module-4-Picture4](../../images/scenario-1-module-4-Picture4.png)
 
 6. Now open Disk Management by right clicking the Windows logo in the lower-left corner and select the **Disk Management**. You will see a new Offline Disk 1. This contains a copy of the volume from the Volume Gateway you deployed in module 2. Bring the volume online by right-clicking the section describing the disk and selecting **Online**.
+
+![scenario-1-module-4-Picture5](../../images/scenario-1-module-4-Picture4.png)
+
 </p></details>
-  
-</p></details>
 
-
-
-## Validation Step
+## Validation Step - Scenario Complete!
 
 <details>
 <summary><strong>Verify sample data exists on your EC2 instance (expand for details)</strong></summary><p>
 
 Check the new D: drive in File Explorer and you should see all the data that was on the original volume that was cloned.
 
-![scenario-1-module-1-Picture5](../../images/scenario-1-module-1-Picture5.png)
+![scenario-1-module-4-Picture6](../../images/scenario-1-module-4-Picture6.png)
 
 ### What just happened?
 
-This is a method of migrating data, using an EBS snapshot of the Volume Gateway volume, enables minimal downtime during cutover to AWS since all of the data already resides at AWS. This is optimal for large data drives that exist on file servers, database servers, web servers and any other system that needs to store large amounts of data locally. 
+We deployed a whole new AWS Storage Gateway and associated Windows Instance in a completely different location to the orginal gateway. This effectively allowed us to present a clone from one location in the world to another completely different location in the world. We used the newly deployed windows isntance to confirm that all the data we expected arrived at it's final destionation (London).
 
-In this module, a new Windows EC2 instance was launched in AWS (eu-central-1 region) with the migrated data mounted from an EBS snapshot that you created from the Volume Gateway volume which was being hosting in the Frankfurt region (even when it was being presented to Ireland region via the EC2 gateway in that region).
+This is an alternative method of migrating data, using a clone of an existing Volume Gateway volume. Instead of creating a new volume using EBS snapshots, which are exclusive to AWS regions. The main benefit of this method is that you can present cloned volumes to either AWS or in any other location/hypervisor that supports running the AWS storage gateway OS, including in private datacenters.
 
-You now have a Windows instance in eu-central-1 that contains a boot volume and a data volume. The secondary volume is a copy of the data that was hosted by the gateway volume in module 2 (drive E:). At this point you have successfully migrated data from a region simulating an on-premises deployment to the Frankfurt eu-central-1 region. 
+## Workshop Cleanup
+
+To make sure all resources are deleted after this workshop scenario make sure you execute the follow steps in the order outlined below:
+
+1. Delete the two storage gateways from the storage gateway console in Frankfurt (eu-central-1)
+2. Destroy the cloud formation stack in eu-west-2 named "storage-workshop-2d"
+2. Destroy the cloud formation stack in eu-central-1 named "storage-workshop-2c"
+2. Destroy the cloud formation stack in eu-west-1 named "storage-workshop-2b" (wait for it to complete before deleting the next one)
+2. Destroy the cloud formation stack in eu-west-1 named "storage-workshop-2a"
 
 </p></details>
-
-### Start next module
-
-Module 4: [Cutover data volume to a remote location eu-west-2](../module-4/README.md)
 
 ## License
 
