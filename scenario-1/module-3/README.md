@@ -78,7 +78,7 @@ You now have a Windows instance in eu-central-1 that contains a boot volume and 
 
 ### Start next module
 
-Module 4: [Cutover data volume to a remote location eu-west-2](../module-2/README.md)
+Module 4: [Cutover data volume to a remote location eu-west-2](../module-4/README.md)
 
 ## License
 
