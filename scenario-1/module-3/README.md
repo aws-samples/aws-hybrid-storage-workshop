@@ -1,14 +1,12 @@
-#  Migrate data to an AWS Storage Gateway volume
+#  Cutover data volume to Amazon EBS in eu-central-1
 
 ## Introduction
 
-In this module, you will deploy a Volume Gateway that will allow your data to be replicated to the Frankfurt region (AWS). You will deploy the gateway into the Ireland region in the same Availability Zone as the Windows instance you launched in Module 1. The gateway is registered in the Frankfurt region, however, and that is where the data will be stored for all volumes created on this gateway. 
-
-You will launch this AWS CloudFormation template in the eu-west-1 region to build the necessary resources automatically. This template will create a Storage Gateway in the Frankfurt (eu-central-1) region, but deploy it in EC2 in the Ireland region so it can be attached to your new Windows instance. The gateway will be activated by the template and the appropriate security group will be attached.
+In this module, you will generate an EBS volume from the snapshot of your gateway volume in the Frankfurt region. The volume will be attached to a new EC2 instance which you will connect to, to verify all expected data is there. At this point you will have successfully migrated from a windows instance in Ireland eu-west-1 (simulating on-premises OS) to the AWS Fankfurt eu-central-1 (which is just being itself ;))
 
 ## Architecture overview
 
-![scenario-1-diagram-2](../../images/scenario-1-diagram-2.png)
+![scenario-1-cutover-1](../../images/scenario-1-cutover-1.png)
 
 ### 1.	Deploy Windows Instance using CloudFormation Template
 
