@@ -10,6 +10,9 @@ In this module, you'll deploy Windows Server to simulate on-premises server with
 
 ### 1.	Deploy Windows Instance using CloudFormation Template
 
+<details>
+<summary><strong>CloudFormation Launch Instructions (expand for details)</strong></summary><p>
+
 1.	Right click the **Launch Stack** link below and "open in new tab"
 
 Region| Launch
@@ -28,6 +31,7 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 8.	On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**.
 
 Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready to move on to the next step.
+</p></details>
 
 ## Architecture Overview
 
