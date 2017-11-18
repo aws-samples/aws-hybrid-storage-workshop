@@ -143,7 +143,7 @@ Now, let’s create an EBS snapshot of this volume so we can have a point in tim
 ## Validation Step
 
 <details>
-<summary><strong>Verify (expand for details)</strong></summary><p>
+<summary><strong>Verify your EBS snapshot is being created (expand for details)</strong></summary><p>
 
 1. From the Actions drop-down, select **Create EBS Snapshot**. Enter a description for the snapshot (ex. Data migrated from Windows server to AWS), and click **Create EBS snapshot** button.
 2.	From the **Services** drop-down, select **EC2** to return to the EC2 management console. Then select Snapshots from the left menu. Our new snapshot will probably still be *pending* so we’ll wait for it to finish.
