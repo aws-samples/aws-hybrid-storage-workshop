@@ -63,6 +63,7 @@ Once you have connected to the Windows Instance via RDP, open the File Explorer 
 You now have a Windows instance in eu-west-1 that contains a boot volume and a data volume. The secondary volume and it's data will be used as sample data for the other modules in this workshop.
 </p></details>
 
+### Start next module
 
 Module 2: [Migrate data to an AWS Storage Gateway volume](../module-2/README.md)
 
