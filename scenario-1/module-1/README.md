@@ -2,13 +2,15 @@
 
 ## Introduction
 
-In this module, you'll deploy Windows Server to simulate on-premises server with a root volume C: (EBS) and data volume D: (EBS) in the eu-west-1 (Ireland) AWS region. The D: volume will contain 200 sample images which will be used as test data for the rest of the workshop.
+In this module, you will deploy Windows Server to simulate on-premises server with a root volume C: (EBS) and data volume D: (EBS) in the eu-west-1 (Ireland) AWS region. The D: volume will contain 200 sample images which will be used as test data for the rest of the workshop.
 
 ## Architecture overview
 
 ![scenario-1-diagram-1](../../images/scenario-1-diagram-1.png)
 
 ### 1.	Deploy Windows Instance using CloudFormation Template
+
+First we need to deploy our windows instance with two EBS volumes and sample data.
 
 <details>
 <summary><strong>CloudFormation Launch Instructions (expand for details)</strong></summary><p>
@@ -43,10 +45,10 @@ Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready t
 1.	From the AWS console, click **Services** and select **EC2**  
 2.	Select **Instances** from the menu on the left.
 3.	Wait until the newly create instance shows as *running*.
+4. Right click on your newly provisoined instance and select **connect** from the menu.
 
 ![scenario-1-module-1-Picture3](../../images/scenario-1-module-1-Picture3.png)
 
-4. Right click on your newly provisoined instance and select **connect** from the menu.
 5. Click **Get Password** and use your .pem to access the RDP administrator password. Keep a copy of the password for your RDP client.
 6. Click **Download Remote Desktop File** and open the file with your RDP client
 7. Use the password from step 5 to authenticate and connect your RDP client to your windows instance
