@@ -57,7 +57,7 @@ Note: You will not see the gateway that was just provisioned here. While, we dep
 
 You will now see the Gateway that you just provisioned listed. Verify that their is a gateway named "Hybrid-Workshop-Gateway-Server-1...." and its status is *Running*.
 
-6.	Click on the gateway to reveal the Details tab below. From the Details tab, make note of the *IP address* of the gateway and write it below. (We will use that address to connect our windows client to the storage gateways iSCSI interface.
+6.	Click on the gateway to reveal the Details tab below. From the Details tab, make note of the *IP address* of the gateway for use in step 3 of this module. (We will use that address to connect our windows client to the storage gateways iSCSI interface.
 
 ![scenario-1-module-2-gateway-console](../../images/scenario-1-module-2-gateway-console.png)
 
