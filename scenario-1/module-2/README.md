@@ -26,7 +26,7 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 4. Leave Instance Type, Gateway Cache Disk Size and Gateway Upload Buffer Disk Size at default values.
 5. Choose a size between 1GiB and 10GiB for the volume that will be presented by the gateway and stored in Frankfurt. 
 Note: We have kept the volume sizes small to reduce cost of the storage for this workshop, in the real world volumes are much larger.
-7. Leave the Activation Region at eu-central-1
+7. Leave the Activation Region at eu-central-1. Activating the gateway in the Frankfurt region means all data written to the gateway will be stored in Frankfurt even though the gateway EC2 instance (VM) will be presenting that data in Ireland.
 8. Select the Security Group that was automatically created in Module 1 named "storage-workshop-1a-win1SecurityGroup...". This will allow our windows instance network access (iSCSI) to the gateway that is soon to be deployed in the same VPC.
 
 ![scenario-1-module-2-cf-options](../../images/scenario-1-module-2-cf-options.png)
