@@ -129,7 +129,7 @@ Use the AWS Management Console to create a new lifecycle policy on S3 secondary 
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
 
-1. In AWS Management Console, S3 service, all the buckets are listed. Click the name of  the S3 secondary bucket you created in Step 3. 
+1. In AWS Management Console, S3 service, all the buckets are listed. Click the name of  the S3 secondary bucket you created in Step 4. 
 2. Click Management Tab, and click Lifecycle
 3. Click Get started or **+Add lifecycle rule**
 4. In the first step of Lifecycle Rule Window, enter a rule name, click **Next**
