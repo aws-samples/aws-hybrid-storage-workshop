@@ -156,10 +156,10 @@ This is an alternative method of migrating data, using a clone of an existing Vo
 To make sure all resources are deleted after this workshop scenario make sure you execute the follow steps in the order outlined below:
 
 1. Delete the two storage gateways from the storage gateway console in Frankfurt (eu-central-1)
-2. Delete the cloud formation stack in eu-west-2 (Ireland) named "storage-workshop-2d"
-3. Delete the cloud formation stack in eu-central-1 (Frankfurt) named "storage-workshop-2c"
-4. Delete the cloud formation stack in eu-west-1 (London) named "storage-workshop-2b" (wait for it to complete before deleting the next one)
-5. Delete the cloud formation stack in eu-west-1 (London) named "storage-workshop-2d"
+2. Delete the CloudFormation stack in eu-west-2 (Ireland) named "storage-workshop-2d"
+3. Delete the CloudFormation stack in eu-central-1 (Frankfurt) named "storage-workshop-2c"
+4. Delete the CloudFormation stack in eu-west-1 (London) named "storage-workshop-2b" (wait for it to complete before deleting the next one)
+5. Delete the CloudFormation stack in eu-west-1 (London) named "storage-workshop-2d"
 6. Delete the EBS snapshot you created earlier from the EC2 >  EBS > Snapshots section of the consule in eu-central-1 (Frankfurt)
 
 You should confirm that no EC2 instances are running in Ireland (eu-west-1), Frankfurt (eu-central-1) and London (eu-west-2) to make sure all CF templates have been deleting correctly.
