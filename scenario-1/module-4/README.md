@@ -66,9 +66,11 @@ Note: Instances that are launched as part of this CloudFormation template may be
 4. From the Services drop-down, select **Storage Gateway**.
 5. Click on **London** in the upper-right corner and select **EU (Frankfurt)** from the list to switch the console to the eu-central-1 region.
 You will now see the Gateway that you just provisioned listed named "Hybrid-Workshop-Gateway-Server-**2**" in addition to the Gateway you provisioned in Module 2. Verify that the Status is *‘Running’*.
-6. Click on the new gateway named "Hybrid-Workshop-Gateway-Server-**2**" to reveal the Details tab below. From the Details tab, make note of the IP address of the gateway and write it below.
+6. Click on the new gateway named "Hybrid-Workshop-Gateway-Server-**2**" to reveal the Details tab below. From the Details tab, make note of the IP (LAN) address of the gateway for step 4 in this module.
+
+![scenario-1-module-4-gateway-console](../../images/scenario-1-module-4-gateway-console.png)
+
 7.	Click Volumes from the left menu. You will see a single volume which you created in Module 2. We will now create a new volume on the new gateway by cloning the existing volume. Click the **Create Volume** button.
-19.	Select the new gateway from the list. You many need to hover over the options to verify the gateway name matches ends in "Gateway Server **2**".
 8.	Select a capacity that is larger or equal to your last gateway volume.
 9.	Select Clone from last recovery point for the Volume contents
 10.	For the Source volume, select your existing volume from the gateway created in Module 2. (should be the only volume in the list)
