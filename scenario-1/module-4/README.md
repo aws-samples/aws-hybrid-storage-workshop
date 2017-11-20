@@ -41,6 +41,8 @@ EU (London) | [![Launch Module 1 in eu-west-2](http://docs.aws.amazon.com/AWSClo
 
 Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready to move on to the next step.
 
+Note: Instances that are launched as part of this CloudFormation template may be in the initializing state for few minutes.
+
 </p></details>
 
 ## 2. Check your windows and gateway instances
