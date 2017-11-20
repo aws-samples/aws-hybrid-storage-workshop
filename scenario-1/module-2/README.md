@@ -38,6 +38,9 @@ Note: We have kept the volume sizes small to reduce cost of the storage for this
 ![iam-accept](../../images/iam-accept.png)
 
 Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready to move on to the next step.
+
+Note: Instances that are launched as part of this CloudFormation template may be in the initializing state for few minutes.
+
 </p></details>
 
 ## 2. Verify the gateway is active and get LAN IP Address
