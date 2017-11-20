@@ -61,9 +61,9 @@ You will now see the Gateway that you just provisioned listed. Verify that their
 ![scenario-1-module-2-gateway-console](../../images/scenario-1-module-2-gateway-console.png)
 
 7.	Click Volumes from the left menu to see the volume that was created by the CloudFormation stack. The size should match what you specified in the configuration (1-5 GiB).
-</p></details>
 
-![scenario-1-module-2-volume-console](../../images/scenario-1-module-2-gateway-console.png)
+![scenario-1-module-2-volume-console](../../images/scenario-1-module-2-volume-console.png)
+</p></details>
 
 ## 3. Connect the windows server to the gateway volume
 
