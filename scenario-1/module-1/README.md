@@ -65,6 +65,8 @@ Note: For detailed instructions on How To connect to your Windows instance using
 
 Once you have connected to the Windows Instance via RDP, open the File Explorer and verify that there is a C: drive and a D: drive and that there are JPEG files in the D: drive.
 
+(Optionally) You can add your own unqiue file data to the d: volume by creating a text file or downloading images via firefox within the RDP session.
+
 ![scenario-1-module-1-Picture5](../../images/scenario-1-module-1-Picture5.png)
 
 You now have a Windows instance in eu-west-1 that contains a boot volume and a data volume. The secondary volume and it's data will be used as sample data for the other modules in this workshop.
