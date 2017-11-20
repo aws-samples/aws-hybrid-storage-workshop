@@ -58,8 +58,12 @@ You will now see the Gateway that you just provisioned listed. Verify that their
 
 6.	Click on the gateway to reveal the Details tab below. From the Details tab, make note of the *IP address* of the gateway and write it below. (We will use that address to connect our windows client to the storage gateways iSCSI interface.
 
+![scenario-1-module-2-gateway-console](../../images/scenario-1-module-2-gateway-console.png)
+
 7.	Click Volumes from the left menu to see the volume that was created by the CloudFormation stack. The size should match what you specified in the configuration (1-5 GiB).
 </p></details>
+
+![scenario-1-module-2-volume-console](../../images/scenario-1-module-2-gateway-console.png)
 
 ## 3. Connect the windows server to the gateway volume
 
