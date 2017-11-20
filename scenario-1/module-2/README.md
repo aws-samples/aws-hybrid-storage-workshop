@@ -2,9 +2,7 @@
 
 ## Introduction
 
-In this module, you will deploy a Volume Gateway that will allow your data to be replicated to the Frankfurt region (AWS). You will deploy the gateway into the Ireland region in the same Availability Zone as the Windows instance you launched in Module 1. The gateway is registered in the Frankfurt region, however, and that is where the data will be stored for all volumes created on this gateway. 
-
-You will launch this AWS CloudFormation template in the eu-west-1 region to build the necessary resources automatically. This template will create a Storage Gateway in the Frankfurt (eu-central-1) region, but deploy it in EC2 in the Ireland region so it can be attached to your new Windows instance. The gateway will be activated by the template and the appropriate security group will be attached.
+In this module, you will deploy a Volume Gateway that will allow your data to be replicated(written) to the Frankfurt region (AWS). You will launch an AWS CloudFormation template in the Ireland (eu-west-1) region to build the necessary resources automatically. To simulate an on-prem installation of SGW, the template will create a Storage Gateway instance in the Ireland region where your windows instance can access it however, it will be activated in Frankfurt (where your data will be stored in this module).
 
 ## Architecture overview
 
@@ -25,7 +23,7 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 3. Select your default VPC and any one of the subnets within that VPC.
 4. Leave Instance Type, Gateway Cache Disk Size and Gateway Upload Buffer Disk Size at default values.
 5. Choose a size between 1GiB and 10GiB for the volume that will be presented by the gateway and stored in Frankfurt. 
-Note: We have kept the volume sizes small to reduce cost of the storage for this workshop, in the real world volumes are much larger.
+Note: The volume sizes for purposes of illustration in this workshop have been intentionally kept small. In real world scenarios, these sizes will be much larger. 
 7. Leave the Activation Region at eu-central-1. Activating the gateway in the Frankfurt region means all data written to the gateway will be stored in Frankfurt even though the gateway EC2 instance (VM) will be presenting that data in Ireland.
 8. Select the Security Group that was automatically created in Module 1 named "storage-workshop-1a-win1SecurityGroup...". This will allow our windows instance network access (iSCSI) to the gateway that is soon to be deployed in the same VPC.
 
