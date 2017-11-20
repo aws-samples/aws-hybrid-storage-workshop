@@ -60,7 +60,7 @@ You will now see the Gateway that you just provisioned listed. Verify that their
 
 ![scenario-1-module-2-gateway-console](../../images/scenario-1-module-2-gateway-console.png)
 
-7.	Click Volumes from the left menu to see the volume that was created by the CloudFormation stack. The size should match what you specified in the configuration (1-5 GiB).
+7.	Click Volumes from the left menu to see the volume that was created by the CloudFormation stack. The size should match what you specified in the configuration (between 1 and 10 GiB, depending on what you selected earlier).
 
 ![scenario-1-module-2-volume-console](../../images/scenario-1-module-2-volume-console.png)
 </p></details>
@@ -72,7 +72,7 @@ Now comes the fun part! We will now attach the volume from your Volume Gateway S
 <details>
 <summary><strong>Connect windows to gateway (expand for details)</strong></summary><p> 
 
-1. Return to your Windows instanceRDP sesssion and open the iSCSI Initiator utility by clicking the Windows logo in the bottom left corner and typing ‘iscsi’ and then clicking iSCSI Initiator from the search results.
+1. Return to your Windows instance RDP sesssion and open the iSCSI Initiator utility by double clicking the **iSCSI Initiator** shortcut on the desktop.
 
 2. Click ‘Yes’ if prompted to enable the iSCSI service in Windows
 
@@ -97,7 +97,7 @@ Your Windows instance is now connected with the Volume Gateway via iSCSI and the
 
 Now we need to create a filesystem for our cloud backed volume.
 
-1. Right click on the windows start menu in the lower left corner and select **Disk Management**.
+1. Open **Disk Management** by double clicking the **Disk Management** shortcut on the desktop.
 
 Note: You will see a new Offline Disk 2 of Unknown type. This is your Volume Gateway cached volume. Since Volume Gateway is presenting the volume as raw block storage (like a new SAN volume would look in a traditional datacenter), we need to bring it online and format it so Windows can use it.
 
