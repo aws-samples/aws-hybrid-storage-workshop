@@ -46,7 +46,7 @@ Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready t
 ![scenario-1-module-3-Picture2](../../images/scenario-1-module-3-Picture2.png)
 
 4. Right click on your newly provisoined instance and select **connect** from the menu.
-5. Click **Get Password** and use your .pem to access the RDP administrator password. Keep a copy of the password for your RDP client.
+5. Click **Get Password** and select your file .pem (Key Pair), this will decrypt ec2 instance administrator password. Keep a copy of the password for your RDP client.
 6. Click **Download Remote Desktop File** and open the file with your RDP client
 7. Use the password from step 5 to authenticate and connect your RDP client to your windows instance
 
