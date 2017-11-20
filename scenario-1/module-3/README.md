@@ -26,7 +26,7 @@ EU (Frankfurt) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWS
 6. If you already have an Access Key Pair for this region that you have access to, enter that key pair.  Otherwise, you will need to create a new key pair. ([Creating a key pair using amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair))
 7. Click **Next**.
 
-![scenario-1-module-3-Picture1](../../images/scenario-1-module-3-Picture1.png)
+![scenario-1-module-3-cf-options](../../images/scenario-1-module-3-cf-options.png)
 
 8. Click **Next** Again. 
 9. Click **Create**.
