@@ -80,13 +80,13 @@ Now comes the fun part! We will now attach the volume from your Volume Gateway S
 
 3.	In the Targets tab of the iSCSI Initiator Properties window, enter the *IP address* that you wrote down for your Volume Gateway in the Quick Connect section and click the **Quick Connect** button. 
 
-You should see a target listed now with Connected status:
+You should see a target listed now with Connected status, with a target name that ends with *...frankfurt-vol-1*.
 
-![scenario-1-module-2-Picture2](../../images/scenario-1-module-2-Picture2.png)
+![scenario-1-module-2-iscsi-connected](../../images/scenario-1-module-2-iscsi-connected.png)
 
 Your Windows instance is now connected with the Volume Gateway via iSCSI and the only volume that exists has been discovered by Windows and connected.
 
-5. Click **OK** to close the iSCSI Initiator Properties window.
+5. Click **Done** and **OK** to close the iSCSI Initiator Properties window.
 
 </p></details>
 
