@@ -86,7 +86,7 @@ You should see a target listed now with Connected status, with a target name tha
 
 Your Windows instance is now connected with the Volume Gateway via iSCSI and the only volume that exists has been discovered by Windows and connected.
 
-5. Click **Done** and **OK** to close the iSCSI Initiator Properties window.
+4. Click **Done** and **OK** to close the iSCSI Initiator Properties window.
 
 </p></details>
 
