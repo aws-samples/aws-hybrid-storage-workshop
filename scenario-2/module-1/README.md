@@ -45,6 +45,9 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 ![iam-accept](../../images/iam-accept.png)
 
 Once the Cloudformation Stack shows a status of *CREATE_COMPLETE*, you can continue to the next step.
+
+Note: Instances that are launched as part of this CloudFormation template may be in the initializing state for few minutes.
+
 </p></details>
 
 ### 2.	SSH into Linux Instance created earlier and List the data
