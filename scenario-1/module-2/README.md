@@ -40,7 +40,7 @@ Note: We have kept the volume sizes small to reduce cost of the storage for this
 Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready to move on to the next step.
 </p></details>
 
-## 2. Verify the gateway is active and get its IP Address
+## 2. Verify the gateway is active and get LAN IP Address
 
 <details>
 <summary><strong>Verify gateway and get IP (expand for details)</strong></summary><p>
