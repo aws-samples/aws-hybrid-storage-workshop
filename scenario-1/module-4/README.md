@@ -107,7 +107,7 @@ We will now attach the volume from your new Volume Gateway in Frankfurt to your 
 <details>
 <summary><strong>Connect to cloned volume (expand for details)</strong></summary><p>
   
-1. From your Windows instance, open the iSCSI Initiator utility by clicking the Windows logo in the bottom left corner and typing ‘iscsi’ and then clicking iSCSI Initiator from the search results.
+1. Open the **iSCSI Initiator** utility by double clicking the **iSCSI Initiator** shortcut on the desktop.
 
 2. Click ‘Yes’ if prompted to enable the iSCSI service in Windows
 
@@ -123,7 +123,7 @@ Your Windows instance is now connected with the Volume Gateway via iSCSI and the
 
 ![scenario-1-module-4-Picture4](../../images/scenario-1-module-4-Picture4.png)
 
-6. Now open Disk Management by right clicking the Windows logo in the lower-left corner and select the **Disk Management**. You will see a new Offline Disk 1. This contains a copy of the volume from the Volume Gateway you deployed in module 2. Bring the volume online by right-clicking the section describing the disk and selecting **Online**.
+6. Open **Disk Management** by double clicking the **Disk Management** shortcut on the desktop. You will see a new Offline Disk 1. This contains a copy of the volume from the Volume Gateway you deployed in module 2. Bring the volume online by right-clicking the section describing the disk and selecting **Online**.
 
 ![scenario-1-module-4-Picture5](../../images/scenario-1-module-4-Picture5.png)
 
@@ -149,10 +149,11 @@ This is an alternative method of migrating data, using a clone of an existing Vo
 To make sure all resources are deleted after this workshop scenario make sure you execute the follow steps in the order outlined below:
 
 1. Delete the two storage gateways from the storage gateway console in Frankfurt (eu-central-1)
-2. Destroy the cloud formation stack in eu-west-2 named "storage-workshop-2d"
-2. Destroy the cloud formation stack in eu-central-1 named "storage-workshop-2c"
-2. Destroy the cloud formation stack in eu-west-1 named "storage-workshop-2b" (wait for it to complete before deleting the next one)
-2. Destroy the cloud formation stack in eu-west-1 named "storage-workshop-2a"
+2. Destroy the cloud formation stack in eu-west-2 (Ireland) named "storage-workshop-2d"
+3. Destroy the cloud formation stack in eu-central-1 (Frankfurt) named "storage-workshop-2c"
+4. Destroy the cloud formation stack in eu-west-1 (London) named "storage-workshop-2b" (wait for it to complete before deleting the next one)
+5. Destroy the cloud formation stack in eu-west-1 (London) named "storage-workshop-2a"
+6. Delete the EBS snapshot you created earlier from the EC2 >  EBS > Snapshots section of the consule in eu-central-1 (Frankfurt)
 
 </p></details>
 
