@@ -151,6 +151,9 @@ Now, let’s create an EBS snapshot of this volume so we can have a point in tim
 <summary><strong>Verify your EBS snapshot is being created (expand for details)</strong></summary><p>
 
 1. From the Actions drop-down, select **Create EBS Snapshot**. Enter a description for the snapshot (ex. Data migrated from Windows server to AWS), and click **Create EBS snapshot** button.
+
+![scenario-1-module-2-snap](../../images/scenario-1-module-2-snap.png)
+
 2.	From the **Services** drop-down, select **EC2** to return to the EC2 management console. Then select **Snapshots** from the left menu. Our new snapshot will probably still be *pending* so we’ll wait for it to finish.
 
 Note: The EBS snapshot size matches the size of the volume, not the amount of data created. So, when you create a volume from a snapshot, you know how large the volume will need to be to host the nested filesystem and partion. However, underneath, only the actual data blocks are stored, saving you money!
