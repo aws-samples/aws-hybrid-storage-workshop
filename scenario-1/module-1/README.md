@@ -24,7 +24,7 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 2.	Click **Next** on the Select Template page.
 3.	Select your default VPC and any one of the subnets within that VPC.
 4.	If you already have an Access Key Pair for this region that you have access to, enter that key pair.  Otherwise, you will need to create a new key pair. ([Creating a key pair using amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair))
-5.	Leave the Allow RDP access from as 0.0.0.0/0 or enter the public IP of the computer from which you plan to access the Windows server.  You can find your public IP address at http://www.whatismypublicip.com/
+5.	Leave the Allow RDP access from as 0.0.0.0/0 or enter the public IP of the computer from which you plan to access the Windows server.  You can find your public IP address at http://www.whatismypublicip.com/.
 6.	Click **Next**.
 
 ![scenario-1-module-1-Picture1](../../images/scenario-1-module-1-Picture1.png)
@@ -49,11 +49,11 @@ Once the CloudFormation stack shows a status of CREATE_COMPLETE, you are ready t
 
 ![scenario-1-module-1-Picture3](../../images/scenario-1-module-1-Picture3.png)
 
-5. Click **Get Password** and use your .pem to access the RDP administrator password. Keep a copy of the password for your RDP client.
+5. Click **Get Password** and select your file .pem (Key Pair), this will decrypt ec2 instance administrator password. Keep a copy of the password for your RDP client.
 6. Click **Download Remote Desktop File** and open the file with your RDP client
 7. Use the password from step 5 to authenticate and connect your RDP client to your windows instance
 
-Note: For detailed instructions on How To connect to your Windows instance using an RDP client ([Connecting to Your Windows Instance](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.html))
+Note: For detailed instructions on How To connect to your Windows instance using an RDP client ([Connecting to Your Windows Instance](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.html)).
 
 ![scenario-1-module-1-Picture4](../../images/scenario-1-module-1-Picture4.png)
 </p></details>
