@@ -2,15 +2,15 @@
 
 ## Introduction
 
-In this module, you will cutover to a tertiary region (London eu-west-2), which could very well be anywhere, including a private DR datacenter. In this module you will deploy a new gateway, a clone on the first gateway volume from module 2 and windows OS (instance) that will mount the volume. This module demonstrates how you can clone gateway volume hosted in an AWS region and present it anywhere that has internet connectivity and the ability to host the gateway OS on a supported hypervisor (Amazon EC2, VMware, Hyper-V).
+In this module, you will cutover to a tertiary London (eu-west-2) region, which could very well be anywhere, including a private DR datacenter. In this module you will deploy a new gateway, with a clone on the first gateways volume from module 2 and windows OS (instance) that will mount the clone volume. This module demonstrates how you can clone gateway volume hosted in an AWS region and present it anywhere that has internet connectivity and a gateway supported hypervisor (Amazon EC2, VMware, Hyper-V).
 
-You can launch this AWS CloudFormation template in the eu-west-2 region to build the necessary resources automatically.
+You can launch this AWS CloudFormation template in the London (eu-west-2) region to build the necessary resources automatically.
 
 ## Architecture overview
 
 ![scenario-1-cutover-1](../../images/scenario-1-cutover-2.png)
 
-### 1.	Deploy Gateway & Windows Instance in Frankfurt (eu-central-1)
+### 1.	Deploy Gateway & Windows Instance in London (eu-west-2)
 
 <details>
 <summary><strong>CloudFormation Launch Instructions (expand for details)</strong></summary><p>
@@ -26,7 +26,7 @@ EU (London) | [![Launch Module 1 in eu-west-2](http://docs.aws.amazon.com/AWSClo
 4. Leave the Windows Instance Type as t2.medium
 5. Leave the Gateway Instance Type as c4.2xlarge
 6. Leave the cache and upload buffer sizes as 10GiB
-7. Leave the activation region as (eu-central-1), which is where our volume data resides.
+7. Leave the activation region as Frankfurt (eu-central-1), which is where our volume data resides.
 8. Select the key pair from the last module
 9. Leave the **Allow DRP access from** field as 0.0.0.0/0 or enter the public IP of the computer from which you plan to access the Windows server.  You can find your public IP address at http://www.whatismypublicip.com/
 
@@ -64,7 +64,7 @@ Note: Instances that are launched as part of this CloudFormation template may be
 <summary><strong>Clone volume from Gateway-Server-1 to Gateway-Server-2 for access in London (expand for details)</strong></summary><p>
 
 4. From the Services drop-down, select **Storage Gateway**.
-5. Click on **London** in the upper-right corner and select **EU (Frankfurt)** from the list to switch the console to the eu-central-1 region.
+5. Click on **EU London** in the upper-right corner and select **EU (Frankfurt)** from the list to switch the console to the Frankfurt (eu-central-1) region.
 You will now see the Gateway that you just provisioned listed named "Hybrid-Workshop-Gateway-Server-**2**" in addition to the Gateway you provisioned in Module 2. Verify that the Status is *‘Running’*.
 6. Click on the new gateway named "Hybrid-Workshop-Gateway-Server-**2**" to reveal the Details tab below. From the Details tab, make note of the IP (LAN) address of the gateway for step 4 in this module.
 
@@ -89,7 +89,7 @@ You will now see the new volume listed in the AWS Storage Gateway console
 <details>
 <summary><strong>Connect to the windows instance in London (expand for details)</strong></summary><p>
 
-1. Click **Frankfurt** in the upper-right corner of the page, and select **EU (London)** to return to the eu-west-2 region.
+1. Click **Frankfurt** in the upper-right corner of the page, and select **EU (London)** to return to the London (eu-west-2) region.
 2. From the AWS console, click **Services** and select **EC2**.
 3. Select **Instances** from the menu on the left.
 
@@ -144,7 +144,7 @@ Check the new D: drive in File Explorer and you should see all the data that was
 
 ### What just happened?
 
-We deployed a whole new AWS Storage Gateway and associated Windows Instance in a completely different location to the orginal gateway. This effectively allowed us to present a clone from one location in the world to another completely different location in the world. We used the newly deployed windows isntance to confirm that all the data we expected arrived at it's final destionation (London).
+We deployed a whole new AWS Storage Gateway and associated Windows Instance in a completely different location to the orginal gateway. This effectively allowed us to present a clone from one location in the world to another completely different location in the world. We used the newly deployed windows isntance to confirm that all the data we expected arrived at it's final destination London (eu-west-2).
 
 This is an alternative method of migrating data, using a clone of an existing Volume Gateway volume. Instead of creating a new volume using EBS snapshots, which are exclusive to AWS regions. The main benefit of this method is that you can present cloned volumes to either AWS or in any other location/hypervisor that supports running the AWS storage gateway OS, including in private datacenters.
 
