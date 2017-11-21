@@ -61,7 +61,7 @@ SSH into the Linux instance that is just created, and list the files under /medi
 4. Type `ls –l`, you should see 200 image files, which make up our sample data
 </p></details>
 
-### 3. Create first S3 buckets in EU-Central-1
+### 3. Create first S3 buckets in eu-central-1 (Frankfurt)
 Use the AWS console to create your primary S3 bucket located in a remote region from your Linux instance (eu-central-1)
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
@@ -77,7 +77,7 @@ Use the AWS console to create your primary S3 bucket located in a remote region 
 
 </p></details>
 
-### 4. Create second S3 bucket in EU-West-2
+### 4. Create second S3 bucket in London (eu-west-2)
 Use the AWS console to create a secondary S3 bucket in a tertiary region (eu-west-2)
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
