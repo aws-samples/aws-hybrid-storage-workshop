@@ -155,10 +155,10 @@ Congratulation you have completed the second scenario. In this workshop you succ
 
 To make sure all resources are deleted after this workshop scenario make sure you execute the follow steps in the order outlined below:
 
-1. Delete the file gateway from the storage gateway console in eu-central-1
-2. Delete the buckets in eu-central-1 and eu-west-2
-3. Destroy the cloud formation stack in eu-west-1 named "storage-workshop-2b" (wait for it to complete before deleting the next one)
-4. Destroy the cloud formation stack in eu-west-1 named "storage-workshop-2a"
+1. Delete the AWS file gateway from the storage gateway console in Frankfurt (eu-central-1)
+2. Delete the buckets in Frankfurt (eu-central-1) and London (eu-west-2)
+3. Destroy the cloud formation stack in Ireland (eu-west-1) named "storage-workshop-2b" (wait for it to complete before deleting the next one)
+4. Destroy the cloud formation stack in Ireland (eu-west-1) named "storage-workshop-2a"
 
 ## License
 
