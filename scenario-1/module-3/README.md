@@ -1,8 +1,8 @@
-#  Cutover data volume to Amazon EBS in eu-central-1
+#  Cutover data volume to Amazon EBS in Frankfurt (eu-central-1)
 
 ## Introduction
 
-In this module, you will launch an EC2 instance with a secondary EBS volume created from the snapshot of your gateway volume from the previous module. You will RDP connect to the new instance and verify all expected data is now in the Frankfurt region. At which point you will have successfully migrated from a windows instance in Ireland eu-west-1 (simulating on-premises OS) to a windows instance Fankfurt (eu-central-1, which is just being itself ;) ).
+In this module, you will launch an EC2 instance with a secondary EBS volume created from the snapshot of your gateway volume from the previous module. You will RDP connect to the new instance and verify all expected data is now in the Frankfurt (eu-central-1) region. At which point you will have successfully migrated from a windows instance in Ireland (eu-west-1, simulating on-premises) to a windows instance Fankfurt (eu-central-1, which is just being itself ;) ).
 
 ## Architecture overview
 
@@ -37,7 +37,7 @@ Note: Instances that are launched as part of this CloudFormation template may be
 
 </p></details>
 
-## 2. Connect the EC2 instance in Frankfurt eu-central-1 via RDP
+## 2. Connect the EC2 instance in Frankfurt (eu-central-1) via RDP
 
 <details>
 <summary><strong>Connect to your EC2 instance (expand for details)</strong></summary><p>
@@ -73,15 +73,15 @@ Check the new D: drive in File Explorer and you should see all the data that was
 
 This is a method of migrating data, using an EBS snapshot of the Volume Gateway volume, enables minimal downtime during cutover to AWS since all of the data already resides at AWS. This is optimal for large data drives that exist on file servers, database servers, web servers and any other system that needs to store large amounts of data locally. 
 
-In this module, a new Windows EC2 instance was launched in AWS (eu-central-1 region) with the migrated data mounted from an EBS snapshot that you created from the Volume Gateway volume which was being hosting in the Frankfurt region (even when it was being presented to Ireland region via the EC2 gateway in that region).
+In this module, a new Windows EC2 instance was launched in AWS Frankfurt (eu-central-1) region with an attached EBS volume created from the EBS snapshot that you created from the Volume Gateway volume in the last module. Since the data from our gateway has been residing in Frankfurt (eu-central-1) region, it it a simple operation to create EBS snapshots from the volume and present them as native EBS volumes to EC2 instances.
 
-You now have a Windows instance in eu-central-1 that contains a boot volume and a data volume. The secondary volume is a copy of the data that was hosted by the gateway volume in module 2 (drive E:). At this point you have successfully migrated data from a region simulating an on-premises deployment to the Frankfurt eu-central-1 region. 
+You now have a Windows instance in Frankfurt (eu-central-1) that contains a boot volume and a data volume. The data volume is a copy of the data that was hosted by the gateway volume in module 2 (drive E:). At this point you have successfully migrated data from a region simulating an on-premises deployment to the Frankfurt (eu-central-1) region. 
 
 </p></details>
 
 ### Start next module
 
-Module 4: [Cutover data volume to a remote location eu-west-2](../module-4/README.md)
+Module 4: [Cutover data volume to a remote location London (eu-west-2)](../module-4/README.md)
 
 ## License
 
