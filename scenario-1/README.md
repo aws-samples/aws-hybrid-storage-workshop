@@ -4,7 +4,7 @@
 
 ### AWS Account
 
-In order to complete this workshop, you will need an AWS account with access to create AWS IAM roles, EC2 instances, EBS volumes, AWS Storage Gateways and CloudFormation stacks in the eu-west-1, eu-west-2, and eu-central-1 regions.
+In order to complete this workshop, you will need an AWS account with access to create AWS IAM roles, EC2 instances, EBS volumes, AWS Storage Gateways and CloudFormation stacks in the Ireland (eu-west-1), London (eu-west-2), and Frankfurt (eu-central-1) regions.
 
 Resources consumed as part of this workshop will have a cost and it is recommended that you follow the cleanup instructions once you have completed the workshop to remove all deployed resources and limit ongoing costs to your AWS account.
 
@@ -19,10 +19,10 @@ Resources consumed as part of this workshop will have a cost and it is recommend
 
 This scenario is broken into 4 workshop modules:
 
-* **Module 1** - [Deploy windows instance with sample data in eu-west-1](module-1/README.md)
+* **Module 1** - [Deploy windows instance with sample data in Ireland (eu-west-1)](module-1/README.md)
 * **Module 2** - [Migrate data to an AWS Storage Gateway volume](module-2/README.md)
-* **Module 3** - [Cutover data volume to Amazon EBS in eu-central-1](module-3/README.md)
-* **Module 4** - [Cutover data volume to a remote location eu-west-2](module-4/README.md)
+* **Module 3** - [Cutover data volume to Amazon EBS in Frankfurt (eu-central-1)](module-3/README.md)
+* **Module 4** - [Cutover data volume to a remote location London (eu-west-2)](module-4/README.md)
 
 ## License
 
