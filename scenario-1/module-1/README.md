@@ -1,4 +1,4 @@
-#  Deploy windows instance with sample data in eu-west-1
+#  Deploy windows instance with sample data in Ireland (eu-west-1)
 
 ## Introduction
 
@@ -8,7 +8,7 @@ In this module, you will deploy Windows Server to simulate on-premises server wi
 
 ![scenario-1-diagram-1](../../images/scenario-1-diagram-1.png)
 
-### 1.	Deploy Windows Instance using CloudFormation Template
+### 1. Deploy Windows Instance using CloudFormation Template
 
 First we need to deploy our windows instance with two EBS volumes and sample data.
 
@@ -19,7 +19,7 @@ First we need to deploy our windows instance with two EBS volumes and sample dat
 
 Region| Launch
 ------|-----
-EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=storage-workshop-1a&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario1-step1-deploy-WIN1-(eu-west-1).json)
+EU (Ireland) | [![Launch Module 1 in ](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=storage-workshop-1a&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario1-step1-deploy-WIN1-(eu-west-1).json)
 
 2.	Click **Next** on the Select Template page.
 3.	Select your default VPC and any one of the subnets within that VPC.
@@ -40,7 +40,7 @@ Note: Instances that are launched as part of this CloudFormation template may be
 
 </p></details>
 
-## 2. Connect the EC2 instance in eu-west-1 via RDP
+## 2. Connect the EC2 instance in Ireland (eu-west-1) via RDP
 
 <details>
 <summary><strong>Connect to your EC2 instance (expand for details)</strong></summary><p>
@@ -72,7 +72,7 @@ Once you have connected to the Windows Instance via RDP, open the File Explorer 
 
 ![scenario-1-module-1-Picture5](../../images/scenario-1-module-1-Picture5.png)
 
-You now have a Windows instance in eu-west-1 that contains a boot volume and a data volume. The secondary volume and it's data will be used as sample data for the other modules in this workshop.
+You now have a Windows instance in Ireland (eu-west-1) that contains a boot volume and a data volume. The secondary volume and it's data will be used as sample data for the other modules in this workshop.
 </p></details>
 
 ### Start next module
