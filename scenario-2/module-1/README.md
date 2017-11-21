@@ -66,12 +66,12 @@ Use the AWS console to create your primary S3 bucket located in a remote region 
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
 
-1. Changed the AWS console region to eu-central-1
+1. Change the AWS console region to eu-central-1 (Frankfurt), by selecting **EU (Frankfurt)** from the region list in the top right corner of the console.
 2. In the AWS Management Console select **Services** then select **S3** under Storage.
 3. Select **Create Bucket**
 4. Provide a globally unique name for your bucket such as my-storage-workshop-bucket1.
-5. Select the Region to EU (Frankfurt)
-6. Choose **Create** in the lower left of the dialog without.
+5. Select the Region to **EU (Frankfurt)**
+6. Choose **Create** in the lower left of the dialog as a shortcut to create the bucket without advanced options.
 
 ![scenario-2-module-1-Picture3](../../images/scenario-2-module-1-Picture3.png)
 
@@ -156,7 +156,7 @@ You can either upload it using the AWS Management Console, or you use the AWS CL
 
 2. Select the S3 secondary bucket created in section 4 after a few minutes.  Click the refresh button, you should see the same file replicated to the second bucket. 
 
-Congratulations, you now have a Linux instance in eu-west-1, a primary bucket in eu-central-1 and a replicated bucket in eu-west-2. When you are ready you can move to the second module.
+Congratulations, you now have a Linux instance in Ireland (eu-west-1), a primary bucket in Frankfurt (eu-central-1) and a replicated bucket in London (eu-west-2). When you are ready you can move to the second module.
 
 Module 2: [Deploy Storage Gateway in File mode and integrate with S3](../module-2/README.md)
 
