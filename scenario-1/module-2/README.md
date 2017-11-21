@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this module, you will deploy a Volume Gateway that will allow your data to be replicated(written) to the Frankfurt region (AWS). You will launch an AWS CloudFormation template in the Ireland (eu-west-1) region to build the necessary resources automatically. To simulate an on-prem installation of SGW, the template will create a Storage Gateway instance in the Ireland region where your windows instance can access it however, it will be activated in Frankfurt (where your data will be stored in this module).
+In this module, you will deploy a Volume Gateway that will allow your data to be replicated(written) to the Frankfurt (eu-central-1) region (AWS). You will launch an AWS CloudFormation template in the Ireland (eu-west-1) region to build the necessary resources automatically. To simulate an on-prem installation of SGW, the template will create a Storage Gateway instance in the Ireland (eu-west-1) region where your windows instance can access it however, it will be activated in Frankfurt (eu-central-1) where your data will be written to in this module.
 
 ## Architecture overview
 
@@ -24,7 +24,7 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 4. Leave Instance Type, Gateway Cache Disk Size and Gateway Upload Buffer Disk Size at default values.
 5. Choose a size between 1GiB and 10GiB for the volume that will be presented by the gateway and stored in Frankfurt. 
 Note: The volume sizes for purposes of illustration in this workshop have been intentionally kept small. In real world scenarios, these sizes will be much larger. 
-7. Leave the Activation Region at eu-central-1. Activating the gateway in the Frankfurt region means all data written to the gateway will be stored in Frankfurt even though the gateway EC2 instance (VM) will be presenting that data in Ireland.
+7. Leave the Activation Region at eu-central-1. Activating the gateway in the Frankfurt (eu-central-1) region means all data written to the gateway will be stored in Frankfurt (eu-central-1) even though the gateway EC2 instance will be presenting that data to instances running in Ireland (eu-west-1).
 8. Select the Security Group that was automatically created in Module 1 named "storage-workshop-1a-win1SecurityGroup...". This will allow our windows instance network access (iSCSI) to the gateway that is soon to be deployed in the same VPC.
 
 ![scenario-1-module-2-cf-options](../../images/scenario-1-module-2-cf-options.png)
@@ -51,9 +51,9 @@ Note: Instances that are launched as part of this CloudFormation template may be
 3. Refresh the instance view periodically (every 30 seconds) until you see the word *Activated* in the EC2 instance name.
 4. From the Services drop-down, select **Storage Gateway**.
 
-Note: You will not see the gateway that was just provisioned here. While, we deployed the gateway into EC2 in the EU (Ireland) region, the gateway was activated in the EU (Frankfurt) region, so that is where we will find the gateway, and that is where the data written to it will be stored.
+Note: You will not see the gateway that was just provisioned here. While, we deployed the gateway into EC2 in the Ireland (eu-west-1), the gateway was activated in the EU Frankfurt (eu-central-1) region, so that is where we will find the gateways settings, and that is where the data written to it will be stored.
 
-5.	Click on **Ireland** in the upper-right corner and select **EU (Frankfurt)** from the list to switch the console to the eu-central-1 region.
+5.	Click on **EU (Ireland)** in the upper-right corner and select **EU (Frankfurt)** from the list to switch the console to the Frankfurt (eu-central-1) region.
 
 You will now see the Gateway that you just provisioned listed. Verify that their is a gateway named "Hybrid-Workshop-Gateway-Server-1...." and its status is *Running*.
 
@@ -68,7 +68,7 @@ You will now see the Gateway that you just provisioned listed. Verify that their
 
 ## 3. Connect the windows server to the gateway volume
 
-Now comes the fun part! We will now attach the volume from your Volume Gateway Service in Frankfurt to your Windows instance in Ireland, giving that instance access to both local EBS storage in that Ireland at the same time as remotely write data to Frankfurt via the gateway volume.
+Now comes the fun part! We will now attach the volume from your Volume Gateway Service in Frankfurt (eu-central-1) to your Windows instance in Ireland (eu-west-1), giving that instance access to both local EBS storage in that Ireland at the same time as remotely write data to Frankfurt via the gateway volume.
 
 <details>
 <summary><strong>Connect windows to gateway (expand for details)</strong></summary><p> 
@@ -141,9 +141,9 @@ When you copied the data from the D: drive to the E: drive within your Windows i
 
 ## 5. Create and EBS snapshot of the Storage Gateway volume.
 
-Now, let’s create an EBS snapshot of this volume so we can have a point in time copy that can be shared with EC2 instance in the Frankfurt region.
+Now, let’s create an EBS snapshot of this volume so we can have a point in time copy that can be shared with EC2 instance in the Frankfurt (eu-central-1) region.
 
-1. Your web management console should still be in the Storage Gateway service in the Frankfurt region, but if not, navigate back there.
+1. Your web management console should still be in the Storage Gateway service in the Frankfurt (eu-central-1) region, but if not, navigate back there.
 2. Click on the volume in the Volumes section. You’ll see that there’s now some usage on the volume that’s reflected in the console. Of course, we expected that…
 
 ## Validation Step
@@ -159,21 +159,21 @@ Now, let’s create an EBS snapshot of this volume so we can have a point in tim
 
 Note: The EBS snapshot size matches the size of the volume, not the amount of data created. So, when you create a volume from a snapshot, you know how large the volume will need to be to host the nested filesystem and partion. However, underneath, only the actual data blocks are stored, saving you money!
 
-After this module, you have added to your architecture a new EC2 instance in the Ireland (eu-west-1) region which is your Frankfurt backed Volume Gateway. It has four EBS volumes:
+After this module, you have added to your architecture a new EC2 instance in the Ireland (eu-west-1) region which is your Frankfurt (eu-central-1) backed Volume Gateway. It has four EBS volumes:
 
 * 1 x 80 GiB volume for the gateway O/S
 * 1 x 10 GiB volume for the local cache
 * 1 x 10 GiB volume for the upload buffer
 
-Your Volume Gateway was configured with one cached volume, and we took a snapshot of that volume in the Frankfurt region. 
+Your Volume Gateway was configured with one cached volume, and we took a snapshot of that volume in the Frankfurt (eu-central-1) region, where the data is stored for the volume we just copied our data to. 
 
-In the next module you’ll deploy a Windows server in AWS (Frankfurt) with the snapshot data attached, effectively migrating your server and its data.
+In the next module you’ll deploy a Windows server in Frankfurt (eu-central-1) region with the snapshot data attached, effectively migrating your server and its data.
 
 </p></details>
 
 ### Start next module
 
-Module 3: [Cutover data volume to Amazon EBS in eu-central-1](../module-3/README.md)
+Module 3: [Cutover data volume to Amazon EBS in Frankfurt (eu-central-1)](../module-3/README.md)
 
 ## License
 
