@@ -32,7 +32,7 @@ EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCl
 4.	Select the security group that start with "storage-workshop-2a-linux1SecurityGroup" (This will allow the Linux instance network access to the storage gateway instance)
 5.	Click **Next**.
 
-![scenario-2-module-2-Picture1](../../images/scenario-2-module-2-Picture1.png)
+![scenario-2-module-2-cf-options](../../images/scenario-2-module-2-cf-options.png)
 
 6.	Click **Next** Again. (skipping IAM advanced section)
 7.	On the Review page, check the box to acknowledge that CloudFormation will create IAM resources and click **Create**.
