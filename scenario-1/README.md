@@ -12,7 +12,7 @@ Resources consumed as part of this workshop will have a cost and it is recommend
 
 * **Browser** - We recommend that you use the latest version of Firefox or Chrome for this workshop.
 * **RDP Client** - You will need an rdp client to access EC2 instances
-* **AWS CLI** – You will need the aws cli installed on you client to access S3 objects
+* **AWS CLI** – You will need the aws cli installed on your client to access S3 objects
 * **Key Pair** – You will need a valid EC2 Key Pair in the following regions:- Ireland (eu-west-1), Frankfurt (eu-central-1) and London (eu-west-1). For more information on generating and downloading an EC2 Key Pair please visit [creating a key pair using amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair)
 
 ## Workshop Modules ###
