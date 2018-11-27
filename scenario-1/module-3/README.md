@@ -17,11 +17,11 @@ In this module, you will launch an EC2 instance with a secondary EBS volume crea
 
 Region| Launch
 ------|-----
-EU (Frankfurt) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?stackName=storage-workshop-1c&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario1-step3-cutover1-WIN2-(eu-central-1).json)
+EU (Frankfurt) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?stackName=storage-workshop-1c&templateURL=https://s3-eu-west-1.amazonaws.com/aws-hybrid-storage-workshop/scenario1-step3-cutover1-WIN2-(eu-central-1)-update.json)
 
 2. Click **Next** on the Select Template page.
 3. Select your default VPC and any one of the subnets within that VPC.
-4. Leave Instance Typ as t2.medium
+4. Leave Instance type as t2.medium
 5. Enter the snapshot ID from the last module (this will be the basis for the EBS volume that is created with this instance)
 6. If you already have an Access Key Pair for this region that you have access to, enter that key pair.  Otherwise, you will need to create a new key pair. ([Creating a key pair using amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair))
 7. Click **Next**.
