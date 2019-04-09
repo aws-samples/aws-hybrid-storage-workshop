@@ -24,6 +24,6 @@ This scenario is broken into 2 modules:
 
 ## License
 
-This library is licensed under the Amazon Software License.
+This sample code is made available under the MIT-0 license. See the LICENSE file.
 
 [Back to the main workshop scenarios page](../README.md)
