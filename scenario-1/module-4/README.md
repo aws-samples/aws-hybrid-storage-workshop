@@ -19,7 +19,7 @@ You can launch this AWS CloudFormation template in the London (eu-west-2) region
 
 Region| Launch
 ------|-----
-EU (London) | [![Launch Module 1 in eu-west-2](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/new?stackName=storage-workshop-1d&templateURL=https://s3-us-west-2.amazonaws.com/hybrid-storage-workshop/scenario1-step4-cutover2-SGW2-WIN3-(eu-west-2).json)
+EU (London) | [![Launch Module 1 in eu-west-2](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/new?stackName=storage-workshop-1d&templateURL=https://specialist-cloudformation-templates.s3-us-west-1.amazonaws.com/pl/reinvent2017/scenario1-step4-cutover2-SGW2-WIN3-(eu-west-2).json)
 
 2. Click **Next** on the Select Template page.
 3. Select your default VPC and any one of the subnets within that VPC.
