@@ -25,7 +25,7 @@ In order to give our Linux instance access to S3 over NFS, we first need to depl
 
 Region| Launch
 ------|-----
-EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=storage-workshop-2b&templateURL=https://s3-eu-west-1.amazonaws.com/aws-hybrid-storage-workshop/scenario2-step2-migrate-FGW1-(eu-west-1).json)
+EU (Ireland) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=storage-workshop-2b&templateURL=https://specialist-cloudformation-templates.s3-us-west-1.amazonaws.com/pl/reinvent2017/scenario2-step2-migrate-FGW1-(eu-west-1).json)
 
 2.  Click **Next** on the Select Template page.
 3.	Select the VPC and subnet where the Linux instance was created in module 1
