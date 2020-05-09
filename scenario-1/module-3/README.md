@@ -17,7 +17,7 @@ In this module, you will launch an EC2 instance with a secondary EBS volume crea
 
 Region| Launch
 ------|-----
-EU (Frankfurt) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?stackName=storage-workshop-1c&templateURL=https://s3-eu-west-1.amazonaws.com/aws-hybrid-storage-workshop/scenario1-step3-cutover1-WIN2-(eu-central-1)-update.json)
+EU (Frankfurt) | [![Launch Module 1 in eu-west-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?stackName=storage-workshop-1c&templateURL=https://specialist-cloudformation-templates.s3-us-west-1.amazonaws.com/pl/reinvent2017/scenario1-step3-cutover1-WIN2-(eu-central-1).json)
 
 2. Click **Next** on the Select Template page.
 3. Select your default VPC and any one of the subnets within that VPC.
